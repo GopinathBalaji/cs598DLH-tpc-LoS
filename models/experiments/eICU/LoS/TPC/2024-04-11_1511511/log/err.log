@@ -1,0 +1,10 @@
+2024-04-11 15:11:59,062 - INFO -   File "C:\Users\brend\AppData\Local\Programs\Python\Python36\lib\site-packages\trixi\experiment\experiment.py", line 78, in run
+    self.setup()
+
+  File "C:\Users\brend\eICU\TPC-LoS-prediction\models\run_tpc.py", line 14, in setup
+    no_flat_features=self.train_datareader.no_flat_features).to(device=self.device)
+
+  File "C:\Users\brend\eICU\TPC-LoS-prediction\models\tpc_model.py", line 108, in __init__
+    self.model_type = config.model_type
+
+2024-04-11 15:11:59,062 - INFO - AttributeError("'Config' object has no attribute 'model_type'",)
