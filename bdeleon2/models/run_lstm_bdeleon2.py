@@ -16,7 +16,7 @@ class BaselineLSTM(ExperimentTemplate):
                               no_flat_features=self.test_datareader.no_flat_features).to(device=self.device)
         self.elog.print(self.model)
         self.optimiser = Adam(self.model.parameters(), lr=self.config.learning_rate, weight_decay=self.config.L2_regularisation)
-        self.load_checkpoint("checkpoint_00007")
+        self.load_checkpoint("lstm_mimic_model")
         return
 
 def loadRunLSTMMIMICTest():
