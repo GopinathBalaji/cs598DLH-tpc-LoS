@@ -1,0 +1,156 @@
+2024-04-13 18:05:12,302 - INFO - Config:
+2024-04-13 18:05:12,303 - INFO - {
+    "L2_regularisation": 0,
+    "alpha": 100,
+    "base_dir": "models/experiments/final/eICU/LoS/TPC6.25",
+    "batch_norm": "mybatchnorm",
+    "batch_size": 32,
+    "batch_size_test": 32,
+    "batchnorm": "mybatchnorm",
+    "dataset": "eICU",
+    "diagnosis_size": 64,
+    "disable_cuda": false,
+    "exp_name": "TPC6.25",
+    "intermediate_reporting": false,
+    "kernel_size": 4,
+    "labs_only": false,
+    "last_linear_size": 17,
+    "learning_rate": 0.00226,
+    "loss": "msle",
+    "main_dropout_rate": 0.45,
+    "mode": "test",
+    "model_type": "tpc",
+    "n_epochs": 8,
+    "n_layers": 9,
+    "name": "TPC6.25",
+    "no_diag": false,
+    "no_exp": false,
+    "no_labs": false,
+    "no_mask": false,
+    "no_skip_connections": false,
+    "no_temp_kernels": 12,
+    "percentage_data": 6.25,
+    "point_size": 13,
+    "point_sizes": [
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13
+    ],
+    "save_results_csv": false,
+    "seed": 1405640423,
+    "share_weights": false,
+    "shuffle_train": false,
+    "sum_losses": true,
+    "task": "LoS",
+    "temp_dropout_rate": 0.05,
+    "temp_kernels": [
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12
+    ]
+}
+2024-04-13 18:05:15,763 - INFO - Experiment set up.
+2024-04-13 18:05:15,874 - INFO - TempPointConv(
+  (relu): ReLU()
+  (sigmoid): Sigmoid()
+  (hardtanh): Hardtanh(min_val=0.020833333333333332, max_val=100)
+  (msle_loss): MSLELoss(
+    (squared_error): MSELoss()
+  )
+  (mse_loss): MSELoss(
+    (squared_error): MSELoss()
+  )
+  (bce_loss): BCELoss()
+  (main_dropout): Dropout(p=0.45, inplace=False)
+  (temp_dropout): Dropout(p=0.05, inplace=False)
+  (empty_module): EmptyModule()
+  (diagnosis_encoder): Linear(in_features=293, out_features=64, bias=True)
+  (bn_diagnosis_encoder): MyBatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (bn_point_last_los): MyBatchNorm1d(17, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (bn_point_last_mort): MyBatchNorm1d(17, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (point_final_los): Linear(in_features=17, out_features=1, bias=True)
+  (point_final_mort): Linear(in_features=17, out_features=1, bias=True)
+  (layer_modules): ModuleDict(
+    (0): ModuleDict(
+      (temp): Conv1d(174, 1044, kernel_size=(4,), stride=(1,), groups=87)
+      (bn_temp): MyBatchNorm1d(1044, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=241, out_features=13, bias=True)
+      (bn_point): MyBatchNorm1d(13, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (1): ModuleDict(
+      (temp): Conv1d(1300, 1200, kernel_size=(4,), stride=(1,), dilation=(3,), groups=100)
+      (bn_temp): MyBatchNorm1d(1200, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=1298, out_features=13, bias=True)
+      (bn_point): MyBatchNorm1d(13, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (2): ModuleDict(
+      (temp): Conv1d(1469, 1356, kernel_size=(4,), stride=(1,), dilation=(6,), groups=113)
+      (bn_temp): MyBatchNorm1d(1356, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=1454, out_features=13, bias=True)
+      (bn_point): MyBatchNorm1d(13, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (3): ModuleDict(
+      (temp): Conv1d(1638, 1512, kernel_size=(4,), stride=(1,), dilation=(9,), groups=126)
+      (bn_temp): MyBatchNorm1d(1512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=1610, out_features=13, bias=True)
+      (bn_point): MyBatchNorm1d(13, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (4): ModuleDict(
+      (temp): Conv1d(1807, 1668, kernel_size=(4,), stride=(1,), dilation=(12,), groups=139)
+      (bn_temp): MyBatchNorm1d(1668, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=1766, out_features=13, bias=True)
+      (bn_point): MyBatchNorm1d(13, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (5): ModuleDict(
+      (temp): Conv1d(1976, 1824, kernel_size=(4,), stride=(1,), dilation=(15,), groups=152)
+      (bn_temp): MyBatchNorm1d(1824, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=1922, out_features=13, bias=True)
+      (bn_point): MyBatchNorm1d(13, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (6): ModuleDict(
+      (temp): Conv1d(2145, 1980, kernel_size=(4,), stride=(1,), dilation=(18,), groups=165)
+      (bn_temp): MyBatchNorm1d(1980, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=2078, out_features=13, bias=True)
+      (bn_point): MyBatchNorm1d(13, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (7): ModuleDict(
+      (temp): Conv1d(2314, 2136, kernel_size=(4,), stride=(1,), dilation=(21,), groups=178)
+      (bn_temp): MyBatchNorm1d(2136, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=2234, out_features=13, bias=True)
+      (bn_point): MyBatchNorm1d(13, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (8): ModuleDict(
+      (temp): Conv1d(2483, 2292, kernel_size=(4,), stride=(1,), dilation=(24,), groups=191)
+      (bn_temp): MyBatchNorm1d(2292, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=2390, out_features=13, bias=True)
+      (bn_point): MyBatchNorm1d(13, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (point_last_los): Linear(in_features=2781, out_features=17, bias=True)
+  (point_last_mort): Linear(in_features=2781, out_features=17, bias=True)
+)
+2024-04-13 18:18:39,761 - INFO - Custom bins confusion matrix:
+2024-04-13 18:18:39,763 - INFO - [[264857 122129  33129  13619   6285   3011   1662    910   1340    190]
+ [ 89023 101611  35945  17358   9008   4983   2807   1550   2296    250]
+ [ 29681  61582  29993  15770  10145   5942   3423   1937   2797    418]
+ [ 12300  34402  23256  13274   8810   5614   3593   2088   3367    538]
+ [  5881  19837  16302  11334   7682   4686   3182   2218   3946    590]
+ [  3321  11477  11439   9281   6565   4066   2860   2048   3583    655]
+ [  1930   7298   8112   7182   5351   3841   2795   1875   3380    603]
+ [  1313   4804   5988   5376   4581   3324   2234   1786   3429    555]
+ [  3334  11241  15698  14438  13106  11329   8792   7062  17033   4396]
+ [  2743   8890   8665   8945   8438   7167   5444   4188  12527   5385]]
+2024-04-13 18:18:42,036 - INFO - Test Loss: 84.5962
+2024-04-13 18:18:42,050 - INFO - Experiment ended. Checkpoints stored =)

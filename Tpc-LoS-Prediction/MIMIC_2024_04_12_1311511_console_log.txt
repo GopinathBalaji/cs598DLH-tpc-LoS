@@ -1,0 +1,722 @@
+python -m models.run_tpc --dataset MIMIC
+Config:
+{
+    "L2_regularisation": 0,
+    "alpha": 100,
+    "base_dir": "models/experiments/MIMIC/LoS/TPC",
+    "batch_size": 32,
+    "batch_size_test": 32,
+    "batchnorm": "mybatchnorm",
+    "dataset": "MIMIC",
+    "diagnosis_size": 64,
+    "disable_cuda": false,
+    "exp_name": "TPC",
+    "intermediate_reporting": false,
+    "kernel_size": 4,
+    "labs_only": false,
+    "last_linear_size": 17,
+    "learning_rate": 0.00226,
+    "loss": "msle",
+    "main_dropout_rate": 0.45,
+    "mode": "train",
+    "model_type": "tpc",
+    "n_epochs": 15,
+    "n_layers": 9,
+    "name": "TPC",
+    "no_diag": true,
+    "no_exp": false,
+    "no_labs": false,
+    "no_mask": false,
+    "no_skip_connections": false,
+    "no_temp_kernels": 12,
+    "percentage_data": 100.0,
+    "point_size": 13,
+    "point_sizes": [
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13,
+        13
+    ],
+    "save_results_csv": false,
+    "seed": 3019920015,
+    "share_weights": false,
+    "shuffle_train": false,
+    "sum_losses": true,
+    "task": "LoS",
+    "temp_dropout_rate": 0.05,
+    "temp_kernels": [
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12
+    ]
+}
+Experiment set up.
+TempPointConv(
+  (relu): ReLU()
+  (sigmoid): Sigmoid()
+  (hardtanh): Hardtanh(min_val=0.020833333333333332, max_val=100)
+  (msle_loss): MSLELoss(
+    (squared_error): MSELoss()
+  )
+  (mse_loss): MSELoss(
+    (squared_error): MSELoss()
+  )
+  (bce_loss): BCELoss()
+  (main_dropout): Dropout(p=0.45, inplace=False)
+  (temp_dropout): Dropout(p=0.05, inplace=False)
+  (empty_module): EmptyModule()
+  (diagnosis_encoder): Linear(in_features=1, out_features=64, bias=True)
+  (bn_diagnosis_encoder): MyBatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (bn_point_last_los): MyBatchNorm1d(17, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (bn_point_last_mort): MyBatchNorm1d(17, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (point_final_los): Linear(in_features=17, out_features=1, bias=True)
+  (point_final_mort): Linear(in_features=17, out_features=1, bias=True)
+  (layer_modules): ModuleDict(
+    (0): ModuleDict(
+      (temp): Conv1d(202, 1212, kernel_size=(4,), stride=(1,), groups=101)
+      (bn_temp): MyBatchNorm1d(1212, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=237, out_features=13, bias=True)
+      (bn_point): MyBatchNorm1d(13, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (1): ModuleDict(
+      (temp): Conv1d(1482, 1368, kernel_size=(4,), stride=(1,), dilation=(3,), groups=114)
+      (bn_temp): MyBatchNorm1d(1368, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=1462, out_features=13, bias=True)
+      (bn_point): MyBatchNorm1d(13, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (2): ModuleDict(
+      (temp): Conv1d(1651, 1524, kernel_size=(4,), stride=(1,), dilation=(6,), groups=127)
+      (bn_temp): MyBatchNorm1d(1524, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=1618, out_features=13, bias=True)
+      (bn_point): MyBatchNorm1d(13, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (3): ModuleDict(
+      (temp): Conv1d(1820, 1680, kernel_size=(4,), stride=(1,), dilation=(9,), groups=140)
+      (bn_temp): MyBatchNorm1d(1680, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=1774, out_features=13, bias=True)
+      (bn_point): MyBatchNorm1d(13, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (4): ModuleDict(
+      (temp): Conv1d(1989, 1836, kernel_size=(4,), stride=(1,), dilation=(12,), groups=153)
+      (bn_temp): MyBatchNorm1d(1836, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=1930, out_features=13, bias=True)
+      (bn_point): MyBatchNorm1d(13, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (5): ModuleDict(
+      (temp): Conv1d(2158, 1992, kernel_size=(4,), stride=(1,), dilation=(15,), groups=166)
+      (bn_temp): MyBatchNorm1d(1992, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=2086, out_features=13, bias=True)
+      (bn_point): MyBatchNorm1d(13, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (6): ModuleDict(
+      (temp): Conv1d(2327, 2148, kernel_size=(4,), stride=(1,), dilation=(18,), groups=179)
+      (bn_temp): MyBatchNorm1d(2148, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=2242, out_features=13, bias=True)
+      (bn_point): MyBatchNorm1d(13, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (7): ModuleDict(
+      (temp): Conv1d(2496, 2304, kernel_size=(4,), stride=(1,), dilation=(21,), groups=192)
+      (bn_temp): MyBatchNorm1d(2304, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=2398, out_features=13, bias=True)
+      (bn_point): MyBatchNorm1d(13, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (8): ModuleDict(
+      (temp): Conv1d(2665, 2460, kernel_size=(4,), stride=(1,), dilation=(24,), groups=205)
+      (bn_temp): MyBatchNorm1d(2460, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=2554, out_features=13, bias=True)
+      (bn_point): MyBatchNorm1d(13, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (point_last_los): Linear(in_features=2867, out_features=17, bias=True)
+  (point_last_mort): Linear(in_features=2867, out_features=17, bias=True)
+)
+Experiment started.
+Train Metrics:
+==> Length of Stay:
+Custom bins confusion matrix:
+[[373215 391281 111006  44221  20414  10537   6009   3589   6612   1674]
+ [137107 248584 112913  56356  29515  16608   9904   6253  11603   2740]
+ [ 54278 141971  86955  50670  29519  17671  10956   7042  13877   3474]
+ [ 24725  84525  64874  42780  26488  17092  10998   7342  15092   3867]
+ [ 13348  54328  48265  34801  23440  15459  10321   7049  15018   4172]
+ [  8095  36902  36649  28553  20022  13615   9328   6603  14668   4240]
+ [  5254  26304  29174  23335  17158  12468   8414   6070  13904   4316]
+ [  3524  19459  23261  19767  14811  10669   7511   5441  13121   4268]
+ [  8563  55384  73770  68861  55000  41404  30544  22556  56664  20909]
+ [  4948  35631  57056  58206  49736  40008  31006  23971  64901  28194]]
+Mean absolute deviation (MAD) = 4.0674002518665064
+Mean squared error (MSE) = 103.89498594004557
+Mean absolute percentage error (MAPE) = 134.4754329044581
+Mean squared logarithmic error (MSLE) = 1.4456286100525315
+R^2 Score = 0.012897392283858666
+Cohen kappa score = 0.3400659771391974
+Epoch: 0 | Train Loss: 112.8970
+Validation Metrics:
+==> Length of Stay:
+Custom bins confusion matrix:
+[[64179 91445 30981 13372  5295  2195  1001   454   360    58]
+ [16386 55550 30651 17117  8982  4645  2076  1190   982    61]
+ [ 3956 26766 22636 15843  9434  5805  3307  1834  1699    72]
+ [ 1110 12973 15079 13006  8482  5763  3758  2395  2364    57]
+ [  449  6624  9877  9823  7328  5242  3794  2338  2809    68]
+ [  230  3448  6289  6822  6109  5031  3433  2352  2994    81]
+ [  125  2104  3862  5152  4717  4084  3311  2486  3255    36]
+ [   44  1507  2714  3763  3949  3430  2941  2199  3572    39]
+ [  197  2644  6940 10465 12625 12421 11597  9623 19647   471]
+ [  151  1553  3252  6048  8011  9036  9681  9050 23923  1336]]
+Mean absolute deviation (MAD) = 3.125398945355257
+Mean squared error (MSE) = 38.59127930494833
+Mean absolute percentage error (MAPE) = 131.51338415481064
+Mean squared logarithmic error (MSLE) = 1.1511893674534452
+R^2 Score = 0.23668907403377848
+Cohen kappa score = 0.4651695649259723
+Epoch: 0 | Validation Loss: 87.9372
+Train Metrics:
+==> Length of Stay:
+Custom bins confusion matrix:
+[[474875 344120  83042  33829  14907   7241   4024   2233   3649    638]
+ [161090 247254 106029  53430  26706  14366   8212   4779   8159   1558]
+ [ 51895 134617  90134  56462  32043  18511  11139   6847  12334   2431]
+ [ 18417  69791  66395  50413  32102  20195  12599   8261  16059   3551]
+ [  8242  37778  45888  40490  29202  19604  13239   8861  18259   4638]
+ [  3980  21581  31777  32046  24707  17985  12633   8781  19541   5644]
+ [  2667  13640  22353  25356  21030  15801  11475   8171  19648   6256]
+ [  1776   8951  16839  19856  17139  13539  10311   7654  18932   6835]
+ [  3915  22103  45479  61155  58573  49620  39492  30835  84604  37879]
+ [  2353  12064  29066  43921  47289  43147  37025  30325  94446  54021]]
+Mean absolute deviation (MAD) = 3.7023865962753324
+Mean squared error (MSE) = 96.63071437763041
+49  3418  3513  2711  2441  6258   636]
+ [  142  1426  3861  6884  8598 10496 10282  9924 30286  4731]
+ [   93  1016  1991  3836  5495  6236  7150  7060 30798  8366]]
+Mean absolute deviation (MAD) = 2.876171891952236
+Mean squared error (MSE) = 33.68225598960191
+Mean absolute percentage error (MAPE) = 117.72026841128805
+Mean squared logarithmic error (MSLE) = 0.9794999451868989
+R^2 Score = 0.3337864286671185
+Cohen kappa score = 0.5530845502256774
+Epoch: 1 | Validation Loss: 75.0288
+Train Metrics:
+==> Length of Stay:
+Custom bins confusion matrix:
+[[526402 325372  66999  25882  11134   5435   2767   1605   2507    455]
+ [163851 263368 103297  48225  23272  11920   6433   3875   6225   1117]
+ [ 43827 138385  98750  58087  31616  17294   9832   5980  10627   2015]
+ [ 13691  63181  71889  54589  34353  20825  12807   8117  15038   3293]
+ [  5806  30285  46638  44210  31688  21002  13883   9363  18682   4644]
+ [  2913  15909  29889  33060  26800  19487  13596   9400  21671   5950]
+ [  1904   9956  19146  24683  22191  17053  12365   9377  22408   7314]
+ [  1340   6540  13373  18549  17688  14237  11191   8596  21958   8360]
+ [  2994  14664  32850  52441  55627  50045  41537  33704  99514  50279]
+ [  1614   7367  18635  34325  41200  40925  36389  31576 106998  74628]]
+Mean absolute deviation (MAD) = 3.5241446738643143
+Mean squared error (MSE) = 93.83242906814465
+ [  2167  25284  26102  17073   9389   5248   2742   1555   1753     39]
+ [   512   9027  15734  14679  10017   5889   3620   2194   3234     81]
+ [   246   3896   8068  10227   8608   6107   3959   2657   4442    142]
+ [   109   1906   4438   6086   6390   5356   3978   2812   5446    268]
+ [    85   1026   2545   3791   4300   4533   3949   2707   5802    394]
+ [    62    699   1752   2490   3024   3648   3374   2479   6077    553]
+ [   182   1154   3344   6110   8448   9598  10517  10170  31855   5252]
+ [    90    691   1687   2824   4690   6084   7186   7749  30678  10362]]
+Mean absolute deviation (MAD) = 2.702087940728848
+Mean squared error (MSE) = 31.975472633170583
+Mean absolute percentage error (MAPE) = 100.54567014982459
+Mean squared logarithmic error (MSLE) = 0.8396579587816781
+R^2 Score = 0.36754551641143907
+Cohen kappa score = 0.5974548793032071
+Epoch: 2 | Validation Loss: 64.4300
+Train Metrics:
+==> Length of Stay:
+Custom bins confusion matrix:
+[[559545 311081  58126  21146   8842   4219   2185   1181   1891    342]
+ [162463 277245 102825  44148  20437  10055   5430   3003   5082    895]
+ [ 38555 141036 107560  58361  29588  15957   9130   5350   9203   1673]
+ [ 11606  59186  77985  56942  34451  20461  12425   7782  14045   2900]
+ [  4818  27052  47506  45656  32784  21611  14180   9343  18627   4624]
+ [  2293  13455  28759  33507  27518  20154  14311  10038  22288   6352]
+ [  1534   7865  17764  24539  22216  17550  13261   9733  23831   8104]
+ [  1128   5255  11671  17821  17470  14864  11651   8871  23697   9404]
+ [  2320  10898  27719  47065  52845  48981  42251  34650 107741  59185]
+ [  1180   5371  15022  29250  37243  38376  34986  31248 112418  88563]]
+Mean absolute deviation (MAD) = 3.4302431571267253
+Mean squared error (MSE) = 92.60271123958657
+Mean absolute percentage error (MAPE) = 92.00276513576871
+Mean squared logarithmic error (MSLE) = 0.8986020620816066
+R^2 Score = 0.12018489709474967
+Cohen kappa score = 0.5707591487640502
+Epoch: 3 | Train Loss: 70.1803
+Validation Metrics:
+==> Length of Stay:
+Custom bins confusion matrix:
+[[116065  63075  16661   7204   3278   1506    789    365    374     23]
+ [ 21257  62285  27128  13347   6644   3405   1706    882    965     21]
+ [  2472  24797  26639  16535   9281   4983   2895   1686   2016     48]
+ [   646   8203  15993  15096   9583   6078   3624   2353   3259    152]
+ [   262   3454   8006  10275   8482   5652   4314   3021   4614    272]
+ [   165   1469   4125   5954   6344   5338   3963   3078   5965    388]
+ [   121    845   2359   3439   4284   4227   3552   2869   6971    465]
+ [    80    544   1563   2496   2817   3066   3111   2615   7186    680]
+ [   149   1193   2948   5057   7309   8601   9523   9323  35424   7103]
+ [    75    603   1287   2324   3848   4908   5258   5913  32949  14876]]
+Mean absolute deviation (MAD) = 2.6057875767285137
+Mean squared error (MSE) = 29.79272546593449
+Mean absolute percentage error (MAPE) = 94.05157316964409
+Mean squared logarithmic error (MSLE) = 0.7685596996641584
+R^2 Score = 0.41071886519336187
+Cohen kappa score = 0.6238009353086577
+Epoch: 3 | Validation Loss: 58.9754
+Train Metrics:
+==> Length of Stay:
+Custom bins confusion matrix:
+[[583108 301513  50886  17599   7289   3494   1792   1023   1570    284]
+ [159396 289460 103139  40715  17678   8678   4674   2647   4441    755]
+ [ 34307 143911 114179  57827  28417  14825   8330   4932   8188   1497]
+ [  9857  56135  83070  59363  34369  19921  11802   7372  13152   2742]
+ [  4030  23835  48992  47949  33603  21693  14042   9290  18435   4332]
+ [  2015  11744  28114  34583  28400  20619  14398  10116  22341   6345]
+ [  1304   6853  16902  24503  22720  17947  13585   9952  24368   8263]
+ [   991   4622  10942  17292  17486  14868  12060   9169  24745   9657]
+ [  1998   9407  24860  43637  49950  48100  42161  35675 112978  64889]
+ [   972   3928  12310  25160  33138  35171  33330  30727 115529 103392]]
+Mean absolute deviation (MAD) = 3.34488371312966
+Mean squared error (MSE) = 91.16754040191917
+Mean absolute percentage error (MAPE) = 86.4890057772332
+Mean squared logarithmic error (MSLE) = 0.8334713710207848
+R^2 Score = 0.13382040475242585
+Cohen kappa score = 0.596758466559244
+Epoch: 4 | Train Loss: 65.0942
+Validation Metrics:
+==> Length of Stay:
+Custom bins confusion matrix:
+[[123669  59932  15884   5633   2185   1007    543    210    264     13]
+ [ 22764  65665  28336  11213   4826   2317   1230    579    691     19]
+ [  2474  26727  31025  15684   6987   3819   2155   1069   1352     60]
+ [   664   9137  19305  15623   8953   4625   2610   1571   2297    202]
+ [   278   3746  10092  11526   8213   5453   3546   2118   3062    318]
+ [   224   1547   5239   7009   6594   5267   3854   2683   4017    355]
+ [   144    968   2865   4287   4566   4239   3643   2817   5206    397]
+ [   132    636   1840   2984   3211   3120   3075   2622   5943    595]
+ [   244   1348   3732   6078   8202   9493  10117   9692  30293   7431]
+ [   110    557   1549   2669   4481   5615   6748   6261  30325  13726]]
+Mean absolute deviation (MAD) = 2.576067762537657
+Mean squared error (MSE) = 30.50738620813844
+Mean absolute percentage error (MAPE) = 84.69759283133558
+Mean squared logarithmic error (MSLE) = 0.723022431365667
+R^2 Score = 0.39658333087814
+Cohen kappa score = 0.6287234444550245
+Epoch: 4 | Validation Loss: 55.5100
+Train Metrics:
+==> Length of Stay:
+Custom bins confusion matrix:
+[[599703 293325  46641  15756   6368   2883   1472    884   1288    238]
+ [155825 299605 102231  38642  16488   7858   4174   2332   3787    641]
+ [ 30884 145922 120272  57461  27008  14036   7592   4478   7455   1305]
+ [  8673  53930  87669  60823  34222  19310  11378   6949  12303   2526]
+ [  3575  21784  50388  49566  34267  21729  14056   9122  17645   4069]
+ [  1673  10454  27843  35158  29210  20926  14709  10179  22276   6247]
+ [  1056   6112  16724  24317  22895  18263  13743  10174  24662   8451]
+ [   874   4078  10459  16994  17503  15129  12106   9553  25225   9911]
+ [  1879   8219  21796  41323  48678  47314  42220  35773 116057  70396]
+ [   784   3383  10528  22448  30607  33300  32187  29696 117827 112897]]
+Mean absolute deviation (MAD) = 3.2923330862867624
+Mean squared error (MSE) = 90.30716838647484
+Mean absolute percentage error (MAPE) = 82.63897887411112
+Mean squared logarithmic error (MSLE) = 0.7875740790597362
+R^2 Score = 0.14199476901425045
+Cohen kappa score = 0.6148750626039502
+Epoch: 5 | Train Loss: 61.5102
+Validation Metrics:
+==> Length of Stay:
+Custom bins confusion matrix:
+[[131595  53429  13827   6039   2488   1068    518    198    174      4]
+ [ 23413  64720  27424  12130   5348   2201   1236    587    568     13]
+ [  1980  24645  30224  17648   8620   3800   2198   1049   1180      8]
+ [   531   7181  17921  17291   9833   5599   3047   1567   1946     71]
+ [   252   2500   8644  11853   9552   6092   4039   2357   2904    159]
+ [   164   1054   3547   7490   7150   5774   4533   2758   4080    239]
+ [    96    661   1759   4049   4969   4780   4008   2988   5504    318]
+ [    94    395   1184   2536   3262   3519   3237   2840   6564    527]
+ [    95    922   2480   5095   7392   8978  10175   9360  34921   7212]
+ [    67    397   1012   2352   3832   5314   5874   6627  32696  13870]]
+Mean absolute deviation (MAD) = 2.4664932687834717
+Mean squared error (MSE) = 29.04233678885023
+Mean absolute percentage error (MAPE) = 80.44388502851318
+Mean squared logarithmic error (MSLE) = 0.6649990615503065
+R^2 Score = 0.42556107530548715
+Cohen kappa score = 0.6563211229265141
+Epoch: 5 | Validation Loss: 51.0522
+Train Metrics:
+==> Length of Stay:
+Custom bins confusion matrix:
+[[616889 285257  41600  13565   5289   2472   1353    724   1207    202]
+ [152373 311884 100156  35829  14831   6927   3622   2057   3320    584]
+ [ 27909 148727 125192  56841  25848  12865   7048   4113   6617   1253]
+ [  7372  51466  91644  63048  34284  18655  10839   6559  11564   2352]
+ [  3107  19925  50664  51436  35011  22077  13924   8889  17272   3896]
+ [  1453   9279  27056  36061  29611  21512  14864  10246  22483   6110]
+ [   973   5269  15718  24463  23284  18857  13824  10340  25159   8510]
+ [   738   3529   9956  16630  17313  15312  12471   9565  25966  10352]
+ [  1515   6951  19899  39097  47142  46740  42166  36308 120307  73530]
+ [   665   2806   8883  19889  27585  30886  30950  29190 119263 123540]]
+Mean absolute deviation (MAD) = 3.225626969757485
+Mean squared error (MSE) = 88.46792553712507
+Mean absolute percentage error (MAPE) = 78.84632583543221
+Mean squared logarithmic error (MSLE) = 0.7422774023207029
+R^2 Score = 0.15946935064482215
+Cohen kappa score = 0.6330692076983772
+Epoch: 6 | Train Loss: 57.9728
+Validation Metrics:
+==> Length of Stay:
+Custom bins confusion matrix:
+[[135580  52946  12483   4796   1965    851    364    130    216      9]
+ [ 23215  69140  27300   9759   4066   2041   1054    544    512      9]
+ [  1904  26069  33561  15776   6718   3332   1755   1022   1201     14]
+ [   537   7126  20617  17069   8915   4812   2511   1381   1937     82]
+ [   233   2572   9401  12790   9076   5598   3640   2070   2762    210]
+ [   137   1220   4156   7566   7315   5494   4128   2589   3904    280]
+ [   101    750   2150   4216   5120   4584   3703   2923   5194    391]
+ [    81    491   1526   2457   3637   3443   3061   2517   6301    644]
+ [   101   1460   2791   5640   7544   8785   9235   9249  33740   8085]
+ [    54    497   1393   2766   4141   5361   5527   5605  31193  15504]]
+Mean absolute deviation (MAD) = 2.4499421729522814
+Mean squared error (MSE) = 29.297777876406723
+Mean absolute percentage error (MAPE) = 74.86585126279601
+Mean squared logarithmic error (MSLE) = 0.6325994428818794
+R^2 Score = 0.4205086132833855
+Cohen kappa score = 0.660903115751834
+Epoch: 6 | Validation Loss: 48.6201
+Train Metrics:
+==> Length of Stay:
+Custom bins confusion matrix:
+[[628670 279321  38270  12201   4943   2228   1121    615   1025    164]
+ [148060 321187 100163  34037  13461   6307   3258   1809   2777    524]
+ [ 25804 149126 128715  57285  25604  12361   6632   3772   6044   1070]
+ [  6840  49409  93759  64290  34580  18620  10656   6358  11141   2130]
+ [  2770  18788  50246  53012  35814  22321  13894   8813  16809   3734]
+ [  1282   8496  26507  36675  30494  21522  15029  10397  22335   5938]
+ [   872   4925  15257  24262  23564  18933  14316  10530  25460   8278]
+ [   662   3261   9380  16281  17456  15605  12660   9793  26227  10507]
+ [  1304   6183  18461  37226  46039  46381  42259  36378 122528  76896]
+ [   594   2297   7785  18120  26020  29483  29757  28594 120126 130881]]
+Mean absolute deviation (MAD) = 3.180053863101716
+Mean squared error (MSE) = 87.39297861520471
+Mean absolute percentage error (MAPE) = 76.04906317928443
+Mean squared logarithmic error (MSLE) = 0.7087297241351115
+R^2 Score = 0.16968238354706777
+Cohen kappa score = 0.6456377199809431
+Epoch: 7 | Train Loss: 55.3504
+Validation Metrics:
+==> Length of Stay:
+Custom bins confusion matrix:
+[[140524  49325  11311   4480   1965    864    448    195    211     17]
+ [ 23302  71542  24807   9206   4101   2188   1184    686    592     32]
+ [  1847  27511  31911  15410   6613   3340   1942   1236   1458     84]
+ [   519   7639  19541  16483   9221   4652   2660   1769   2346    157]
+ [   288   2713   9000  11855   8829   5959   3408   2341   3674    285]
+ [   142   1158   3895   6713   7009   5487   4310   2811   4898    366]
+ [   162    675   1830   3725   4510   4401   3846   3039   6387    557]
+ [   120    469   1194   2168   2847   3386   2983   2873   7161    957]
+ [   227   1020   2311   4627   6373   7526   8259   8283  36687  11317]
+ [    64    437   1230   2071   3550   4245   4755   5037  30268  20384]]
+Mean absolute deviation (MAD) = 2.400003237100067
+Mean squared error (MSE) = 27.98694065042872
+Mean absolute percentage error (MAPE) = 73.08041792941266
+Mean squared logarithmic error (MSLE) = 0.6030132664491433
+R^2 Score = 0.44643613874440236
+Cohen kappa score = 0.6787392556145764
+Epoch: 7 | Validation Loss: 46.3828
+Train Metrics:
+==> Length of Stay:
+Custom bins confusion matrix:
+[[637016 276135  35341  11142   4315   1942   1057    529    918    163]
+ [145865 329809  97988  32153  12573   5602   2920   1681   2529    463]
+ [ 24105 151399 132089  56545  24507  11700   6199   3404   5498    967]
+ [  6239  48409  95711  66033  34652  18243  10287   6060  10196   1953]
+ [  2496  17934  50387  54190  36350  22631  13950   8743  16055   3465]
+ [  1154   7974  25684  37139  31193  22160  15279  10424  22122   5546]
+ [   746   4390  14553  24340  23956  19415  14504  10685  25961   7847]
+ [   616   2996   8804  15991  17725  15724  12610  10022  26914  10430]
+ [  1197   5496  17235  35584  45059  45659  41645  36725 124921  80134]
+ [   535   2026   6567  16106  24047  27891  28913  27952 120984 138636]]
+Mean absolute deviation (MAD) = 3.127852918565487
+Mean squared error (MSE) = 85.52576574879912
+Mean absolute percentage error (MAPE) = 73.5970502467601
+Mean squared logarithmic error (MSLE) = 0.6788463914337152
+R^2 Score = 0.18742270732605848
+Cohen kappa score = 0.6577695949352363
+Epoch: 8 | Train Loss: 53.0176
+Validation Metrics:
+==> Length of Stay:
+Custom bins confusion matrix:
+[[141121  49449  10935   4265   1846    814    417    190    279     24]
+ [ 22977  69732  27057   9588   4022   1891   1009    654    661     49]
+ [  1831  26014  32967  15907   7049   3233   1724   1151   1407     69]
+ [   634   7312  19516  16331   9632   5068   2621   1533   2177    163]
+ [   317   2926   8663  11773   8936   5941   3931   2281   3273    311]
+ [   162   1217   3668   6831   7031   5690   3863   2881   5055    391]
+ [   120    646   2004   3583   4551   4671   3854   2795   6400    508]
+ [   110    452   1328   2434   2913   3307   3118   2516   6982    998]
+ [   189   1108   2650   4747   7150   8106   8312   8279  33683  12406]
+ [    55    452   1191   2219   3775   4332   5454   5370  28848  20345]]
+Mean absolute deviation (MAD) = 2.4307825104995207
+Mean squared error (MSE) = 28.42748128717473
+Mean absolute percentage error (MAPE) = 71.99690413599518
+Mean squared logarithmic error (MSLE) = 0.5953707460645967
+R^2 Score = 0.4377225255287548
+Cohen kappa score = 0.6743072715718758
+Epoch: 8 | Validation Loss: 45.8653
+Train Metrics:
+==> Length of Stay:
+Custom bins confusion matrix:
+[[643554 273115  33537  10256   3839   1851    942    490    829    145]
+ [142828 336699  96764  31032  12044   5354   2659   1483   2354    366]
+ [ 22778 152899 134595  56480  23681  11087   5789   3247   5027    830]
+ [  5902  47756  98110  66678  34385  17920   9939   5794   9511   1788]
+ [  2406  17098  50833  55429  37205  22354  13603   8641  15336   3296]
+ [  1109   7482  25820  37771  31513  22308  15178  10270  21746   5478]
+ [   674   4163  14099  24618  24536  19527  14604  10673  25606   7897]
+ [   554   2734   8611  16117  17744  15739  12901  10066  27110  10256]
+ [  1140   5115  16563  34600  44158  46190  42246  36434 126011  81198]
+ [   464   1875   6096  15062  22367  26782  27385  26887 120688 146051]]
+Mean absolute deviation (MAD) = 3.0892249529825535
+Mean squared error (MSE) = 83.186355366015
+Mean absolute percentage error (MAPE) = 71.80643088235763
+Mean squared logarithmic error (MSLE) = 0.6574371489468498
+R^2 Score = 0.20964936310227666
+Cohen kappa score = 0.665763344811519
+Epoch: 9 | Train Loss: 51.3448
+Validation Metrics:
+==> Length of Stay:
+Custom bins confusion matrix:
+[[143853  48909   9433   3611   1682    829    431    239    329     24]
+ [ 23858  73970  24034   7983   3621   1917   1113    532    548     64]
+ [  2038  29413  33028  13845   6090   2880   1660   1058   1237    103]
+ [   501   8181  20996  16287   8204   4445   2631   1563   2013    166]
+ [   328   2749   8955  13017   8701   5178   3471   2369   3227    357]
+ [   162   1103   3697   7098   7209   5559   4038   2859   4574    490]
+ [   107    690   1651   3654   4725   4494   4004   3164   6048    595]
+ [   106    433   1097   2177   2766   3263   3191   2860   7341    924]
+ [   211    976   2137   4253   6323   7659   7731   8111  36150  13079]
+ [    76    505   1184   2110   3375   4275   4570   5100  29002  21844]]
+Mean absolute deviation (MAD) = 2.3664921569983095
+Mean squared error (MSE) = 27.912887915665653
+Mean absolute percentage error (MAPE) = 68.81998031243765
+Mean squared logarithmic error (MSLE) = 0.5652491741168955
+R^2 Score = 0.4479008546740212
+Cohen kappa score = 0.6892035508299403
+Epoch: 9 | Validation Loss: 43.5311
+Train Metrics:
+==> Length of Stay:
+Custom bins confusion matrix:
+[[652056 269673  30861   9126   3431   1522    749    407    620    113]
+ [140039 345903  94801  29061  10981   4850   2434   1294   1961    259]
+ [ 21271 155625 136644  55684  23182  10625   5361   2884   4445    692]
+ [  5323  46636  99356  68340  34609  18052   9590   5574   8839   1464]
+ [  2233  16299  50724  56405  38161  22633  13493   8500  14813   2940]
+ [  1023   6975  24975  37993  32431  22854  15499  10471  21288   5166]
+ [   585   3787  13819  24333  24488  20161  14888  10958  25881   7497]
+ [   479   2532   8110  16088  17803  16135  13107  10253  27351   9974]
+ [  1016   4559  15019  33044  44006  45104  42074  37363 127923  83547]
+ [   413   1630   5392  13401  20672  25099  26279  26157 120495 154119]]
+Mean absolute deviation (MAD) = 3.044728518828674
+Mean squared error (MSE) = 81.61316283455164
+Mean absolute percentage error (MAPE) = 69.3470477762978
+Mean squared logarithmic error (MSLE) = 0.6292313099676248
+R^2 Score = 0.22459621001886576
+Cohen kappa score = 0.676999609649977
+Epoch: 10 | Train Loss: 49.1404
+Validation Metrics:
+==> Length of Stay:
+Custom bins confusion matrix:
+[[145885  49266   8166   3277   1428    612    283    154    247     22]
+ [ 23533  78359  21700   7379   3363   1615    751    377    501     62]
+ [  2227  31853  32376  13235   5697   2567   1437    887   1009     64]
+ [   612   9311  21054  16306   8129   4320   2210   1202   1739    104]
+ [   339   3245   9514  12738   8785   5309   3393   2173   2645    211]
+ [   208   1327   3883   7613   7469   5288   3818   2717   4138    328]
+ [   112    843   1963   3857   4933   4716   4023   2851   5406    428]
+ [   125    617   1268   2271   3093   3352   3450   2641   6572    769]
+ [   273   1110   2779   5302   6633   7286   7742   8393  35196  11916]
+ [    69    630   1472   2420   3450   3901   4445   4984  29099  21571]]
+Mean absolute deviation (MAD) = 2.337264911944683
+Mean squared error (MSE) = 27.440594735379538
+Mean absolute percentage error (MAPE) = 65.0717525981663
+Mean squared logarithmic error (MSLE) = 0.5495146479394589
+R^2 Score = 0.4572425129777795
+Cohen kappa score = 0.6889905098664119
+Epoch: 10 | Validation Loss: 42.3578
+Train Metrics:
+==> Length of Stay:
+Custom bins confusion matrix:
+[[658016 266786  28907   8624   3065   1365    690    401    596    108]
+ [137165 353063  93381  28003  10286   4393   2119   1212   1694    267]
+ [ 20252 156128 139317  55808  22259  10036   5092   2885   4046    590]
+ [  5137  45363 100953  69411  35003  17572   9332   5294   8300   1418]
+ [  2104  15573  50599  57470  38556  22774  13848   8294  14266   2717]
+ [   961   6638  24568  37964  32944  23422  15707  10558  21146   4767]
+ [   543   3602  13067  24541  24628  20310  15302  11221  25871   7312]
+ [   485   2389   7830  15471  17703  16451  13337  10637  27675   9854]
+ [   970   4135  14218  32283  42857  45250  42365  37409 129815  84353]
+ [   363   1496   4781  12612  19429  23873  25792  25514 119092 160705]]
+Mean absolute deviation (MAD) = 3.000669591529048
+Mean squared error (MSE) = 80.3369782914504
+Mean absolute percentage error (MAPE) = 67.71768795112008
+Mean squared logarithmic error (MSLE) = 0.6093536474333099
+R^2 Score = 0.23672119448297857
+Cohen kappa score = 0.6848647126458443
+Epoch: 11 | Train Loss: 47.5875
+Validation Metrics:
+==> Length of Stay:
+Custom bins confusion matrix:
+[[148676  45962   8682   3304   1315    618    364    196    213     10]
+ [ 23237  76838  23236   7704   3225   1642    845    435    430     48]
+ [  1948  29716  33586  14116   5831   2848   1437    850    960     60]
+ [   546   8349  21137  16818   8552   4446   2193   1248   1632     66]
+ [   287   3042   9324  12309   9482   5829   3549   1875   2489    166]
+ [   160   1271   3843   7073   7423   5842   4139   2894   3843    301]
+ [    88    763   1837   3698   4933   4806   3964   3099   5455    489]
+ [    97    573   1296   2228   2965   3561   3059   2805   6751    823]
+ [   267   1154   2624   4999   6319   7699   8057   8510  36504  10497]
+ [    75    706   1352   2239   3613   4439   4817   5217  31316  18267]]
+Mean absolute deviation (MAD) = 2.329263690682184
+Mean squared error (MSE) = 27.612744360035567
+Mean absolute percentage error (MAPE) = 63.5350609341838
+Mean squared logarithmic error (MSLE) = 0.5360041018374326
+R^2 Score = 0.4538375030437325
+Cohen kappa score = 0.6912568008659888
+Epoch: 11 | Validation Loss: 41.3076
+Train Metrics:
+==> Length of Stay:
+Custom bins confusion matrix:
+[[663412 264206  27514   7772   2847   1241    627    346    510     83]
+ [134773 358933  92290  26956   9599   4143   1987   1112   1542    248]
+ [ 19125 156822 141567  55526  21918   9716   4803   2625   3751    560]
+ [  4737  44433 102327  70343  35047  17602   9104   5113   7788   1289]
+ [  1972  15039  50285  58399  39096  22963  13584   8286  14106   2471]
+ [   863   6186  24307  38339  33109  23743  15882  10793  20902   4551]
+ [   459   3241  13193  24454  24947  20744  15574  11165  25575   7045]
+ [   444   2146   7695  15597  18014  16705  13324  10386  27922   9599]
+ [   846   3791  13536  31440  42614  45324  42321  37690 131885  84208]
+ [   380   1362   4501  11708  18340  22902  24447  24907 118023 167087]]
+Mean absolute deviation (MAD) = 2.963828772905658
+Mean squared error (MSE) = 79.98692001565142
+Mean absolute percentage error (MAPE) = 66.07978354312228
+Mean squared logarithmic error (MSLE) = 0.5903782303099052
+R^2 Score = 0.24004708585076007
+Cohen kappa score = 0.6914402558753461
+Epoch: 12 | Train Loss: 46.1042
+Validation Metrics:
+==> Length of Stay:
+Custom bins confusion matrix:
+[[146946  49258   7499   2585   1298    688    407    274    350     35]
+ [ 20914  82721  20505   6727   3086   1520    941    525    615     86]
+ [  1568  33007  32398  12481   5428   2715   1542    952   1136    125]
+ [   551   9069  21305  16141   7890   4156   2284   1342   2118    131]
+ [   300   3222   9121  12635   8963   5087   3271   2151   3407    195]
+ [   163   1244   3696   7215   7444   5427   3692   2792   4680    436]
+ [    87    804   1797   3423   4784   4884   3737   2849   6069    698]
+ [    57    488   1318   1996   2865   3429   3210   2543   7145   1107]
+ [   226    948   2200   4946   6254   6929   7778   7997  35757  13595]
+ [    70    713   1338   2136   3195   4020   4584   4655  28136  23194]]
+Mean absolute deviation (MAD) = 2.334183170114068
+Mean squared error (MSE) = 27.16333469292466
+Mean absolute percentage error (MAPE) = 64.13056313607748
+Mean squared logarithmic error (MSLE) = 0.5264835678842141
+R^2 Score = 0.4627265400313353
+Cohen kappa score = 0.6962500661858775
+Epoch: 12 | Validation Loss: 40.5323
+Train Metrics:
+==> Length of Stay:
+Custom bins confusion matrix:
+[[667693 262560  25706   7441   2654   1085    546    316    494     63]
+ [132730 366215  90283  25424   8912   3779   1766    946   1323    205]
+ [ 18383 159343 143523  54207  20954   9155   4629   2350   3354    515]
+ [  4588  43806 103544  70974  35152  17174   9018   4902   7504   1121]
+ [  1887  14282  50589  58783  39644  23421  13781   8011  13588   2215]
+ [   806   5968  23870  38772  33687  23960  16221  10646  20543   4202]
+ [   483   3112  12446  24447  25573  20812  15501  11422  25824   6777]
+ [   422   2033   7520  15454  18182  16437  13680  10645  28086   9373]
+ [   743   3553  12953  30856  42159  45042  42807  38046 131908  85588]
+ [   305   1109   3859  10480  16942  21561  24078  24153 117492 173678]]
+Mean absolute deviation (MAD) = 2.9240289244706545
+Mean squared error (MSE) = 77.66972419701712
+Mean absolute percentage error (MAPE) = 64.7457304698942
+Mean squared logarithmic error (MSLE) = 0.5735228198639531
+R^2 Score = 0.26206268183421577
+Cohen kappa score = 0.6984928730442932
+Epoch: 13 | Train Loss: 44.7898
+Validation Metrics:
+==> Length of Stay:
+Custom bins confusion matrix:
+[[149270  46905   7434   2776   1236    648    357    233    444     37]
+ [ 21446  80693  22171   7015   2861   1445    832    498    617     62]
+ [  1789  31136  32924  14217   5340   2389   1554    956    945    102]
+ [   552   8006  21457  16935   8519   4134   2145   1351   1752    136]
+ [   327   2731   9101  13281   9101   5437   3406   2013   2741    214]
+ [   167   1122   3581   7666   8021   5274   3873   2605   4120    360]
+ [    79    692   1671   3839   5343   4732   4085   2972   5174    545]
+ [    84    442   1136   2276   3214   3609   3334   2828   6319    916]
+ [   212    898   2513   5212   6839   8093   8243   8393  35243  10984]
+ [    64    685   1535   2713   3441   4396   4854   4933  29045  20375]]
+Mean absolute deviation (MAD) = 2.333413657576085
+Mean squared error (MSE) = 27.81838909392628
+Mean absolute percentage error (MAPE) = 62.57841531181213
+Mean squared logarithmic error (MSLE) = 0.5202339063074973
+R^2 Score = 0.44976998118197165
+Cohen kappa score = 0.6922329359448716
+Epoch: 13 | Validation Loss: 40.1067
+Train Metrics:
+==> Length of Stay:
+Custom bins confusion matrix:
+[[672319 260438  24437   6662   2358   1015    559    274    432     64]
+ [130716 371235  88738  24533   8786   3502   1649    953   1305    166]
+ [ 17243 159091 144884  55418  20915   8894   4350   2167   3040    411]
+ [  4255  42666 104050  72068  35696  17170   9057   4821   6947   1053]
+ [  1701  13729  49622  58869  40774  24030  13719   8144  13392   2221]
+ [   767   5577  23396  38797  34280  24390  16298  10710  20459   4001]
+ [   448   2964  12421  24054  25670  21118  16130  11665  25549   6378]
+ [   363   1844   7186  15517  18051  16885  13971  10794  27965   9256]
+ [   710   3319  12358  29990  41899  45408  43308  38270 133213  85180]
+ [   314   1083   3710  10217  16546  20864  23073  23649 116625 177576]]
+Mean absolute deviation (MAD) = 2.8981010756910863
+Mean squared error (MSE) = 76.643274934803
+Mean absolute percentage error (MAPE) = 63.42686552903142
+Mean squared logarithmic error (MSLE) = 0.5587117449390233
+R^2 Score = 0.2718149401771214
+Cohen kappa score = 0.7035092350211225
+Epoch: 14 | Train Loss: 43.6320
+Validation Metrics:
+==> Length of Stay:
+Custom bins confusion matrix:
+[[152159  45520   6546   2373   1132    606    310    233    414     47]
+ [ 22362  82989  20048   6228   2693   1367    697    465    686    105]
+ [  1879  33651  32842  12241   4800   2400   1350    886   1133    170]
+ [   595   9080  22935  15842   7406   3603   1985   1239   2050    252]
+ [   302   3334  10164  12744   8635   4930   2949   1820   3084    390]
+ [   212   1218   4096   7834   7370   5314   3549   2421   4164    611]
+ [   130    739   1868   4091   5137   4765   3595   2575   5344    888]
+ [    98    462   1177   2370   3168   3678   3122   2502   6168   1413]
+ [   268    933   2282   5093   7081   7654   8287   8383  33166  13483]
+ [    98    601   1210   2462   3594   4099   4521   4477  26890  24089]]
+Mean absolute deviation (MAD) = 2.332676257493632
+Mean squared error (MSE) = 26.961924064899012
+Mean absolute percentage error (MAPE) = 61.70526390359864
+Mean squared logarithmic error (MSLE) = 0.5126990630175207
+R^2 Score = 0.46671031397577634
+Cohen kappa score = 0.6949723444173719
+Epoch: 14 | Validation Loss: 39.5193
+Training complete.
+Experiment ended. Checkpoints stored =)
+Experiment ended.

@@ -1,0 +1,12 @@
+.idea
+.DS_Store
+# experiments
+eICU_data
+MIMIC_data
+eICU_data_preprocessed
+MIMIC_data_preprocessed
+__pycache__
+figures
+*.csv
+*.zip
+mimic-iv-0.4/
