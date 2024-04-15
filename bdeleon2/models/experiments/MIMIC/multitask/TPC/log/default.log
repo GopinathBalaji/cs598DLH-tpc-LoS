@@ -1,0 +1,271 @@
+2024-04-14 21:36:37,044 - INFO - Config:
+2024-04-14 21:36:37,044 - INFO - {
+    "L2_regularisation": 0,
+    "alpha": 100,
+    "base_dir": "models/experiments/MIMIC/multitask/TPC",
+    "batch_norm": "mybatchnorm",
+    "batch_size": 8,
+    "batch_size_test": 8,
+    "batchnorm": "mybatchnorm",
+    "dataset": "MIMIC",
+    "diagnosis_size": 64,
+    "disable_cuda": false,
+    "exp_name": "TPC",
+    "intermediate_reporting": false,
+    "kernel_size": 5,
+    "labs_only": false,
+    "last_linear_size": 36,
+    "learning_rate": 0.00221,
+    "loss": "msle",
+    "main_dropout_rate": 0,
+    "mode": "test",
+    "model_type": "tpc",
+    "n_epochs": 10,
+    "n_layers": 8,
+    "name": "TPC",
+    "no_diag": true,
+    "no_exp": false,
+    "no_labs": false,
+    "no_mask": false,
+    "no_skip_connections": false,
+    "no_temp_kernels": 11,
+    "percentage_data": 100.0,
+    "point_size": 5,
+    "point_sizes": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+    ],
+    "save_results_csv": false,
+    "seed": 2379038891,
+    "share_weights": false,
+    "shuffle_train": false,
+    "sum_losses": true,
+    "task": "multitask",
+    "temp_dropout_rate": 0.05,
+    "temp_kernels": [
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11
+    ]
+}
+2024-04-14 21:36:37,175 - INFO - Experiment set up.
+2024-04-14 21:36:37,201 - INFO - TempPointConv(
+  (relu): ReLU()
+  (sigmoid): Sigmoid()
+  (hardtanh): Hardtanh(min_val=0.020833333333333332, max_val=100)
+  (msle_loss): MSLELoss(
+    (squared_error): MSELoss()
+  )
+  (mse_loss): MSELoss(
+    (squared_error): MSELoss()
+  )
+  (bce_loss): BCELoss()
+  (main_dropout): Dropout(p=0, inplace=False)
+  (temp_dropout): Dropout(p=0.05, inplace=False)
+  (empty_module): EmptyModule()
+  (diagnosis_encoder): Linear(in_features=1, out_features=64, bias=True)
+  (bn_diagnosis_encoder): MyBatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (bn_point_last_los): MyBatchNorm1d(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (bn_point_last_mort): MyBatchNorm1d(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (point_final_los): Linear(in_features=36, out_features=1, bias=True)
+  (point_final_mort): Linear(in_features=36, out_features=1, bias=True)
+  (layer_modules): ModuleDict(
+    (0): ModuleDict(
+      (temp): Conv1d(202, 1111, kernel_size=(5,), stride=(1,), groups=101)
+      (bn_temp): MyBatchNorm1d(1111, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=237, out_features=5, bias=True)
+      (bn_point): MyBatchNorm1d(5, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (1): ModuleDict(
+      (temp): Conv1d(1272, 1166, kernel_size=(5,), stride=(1,), dilation=(4,), groups=106)
+      (bn_temp): MyBatchNorm1d(1166, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=1353, out_features=5, bias=True)
+      (bn_point): MyBatchNorm1d(5, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (2): ModuleDict(
+      (temp): Conv1d(1332, 1221, kernel_size=(5,), stride=(1,), dilation=(8,), groups=111)
+      (bn_temp): MyBatchNorm1d(1221, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=1408, out_features=5, bias=True)
+      (bn_point): MyBatchNorm1d(5, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (3): ModuleDict(
+      (temp): Conv1d(1392, 1276, kernel_size=(5,), stride=(1,), dilation=(12,), groups=116)
+      (bn_temp): MyBatchNorm1d(1276, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=1463, out_features=5, bias=True)
+      (bn_point): MyBatchNorm1d(5, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (4): ModuleDict(
+      (temp): Conv1d(1452, 1331, kernel_size=(5,), stride=(1,), dilation=(16,), groups=121)
+      (bn_temp): MyBatchNorm1d(1331, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=1518, out_features=5, bias=True)
+      (bn_point): MyBatchNorm1d(5, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (5): ModuleDict(
+      (temp): Conv1d(1512, 1386, kernel_size=(5,), stride=(1,), dilation=(20,), groups=126)
+      (bn_temp): MyBatchNorm1d(1386, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=1573, out_features=5, bias=True)
+      (bn_point): MyBatchNorm1d(5, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (6): ModuleDict(
+      (temp): Conv1d(1572, 1441, kernel_size=(5,), stride=(1,), dilation=(24,), groups=131)
+      (bn_temp): MyBatchNorm1d(1441, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=1628, out_features=5, bias=True)
+      (bn_point): MyBatchNorm1d(5, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (7): ModuleDict(
+      (temp): Conv1d(1632, 1496, kernel_size=(5,), stride=(1,), dilation=(28,), groups=136)
+      (bn_temp): MyBatchNorm1d(1496, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=1683, out_features=5, bias=True)
+      (bn_point): MyBatchNorm1d(5, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (point_last_los): Linear(in_features=1725, out_features=36, bias=True)
+  (point_last_mort): Linear(in_features=1725, out_features=36, bias=True)
+)
+2024-04-14 21:36:39,368 - INFO - Experiment exited. Checkpoints stored =)
+2024-04-14 21:51:36,774 - INFO - Config:
+2024-04-14 21:51:36,774 - INFO - {
+    "L2_regularisation": 0,
+    "alpha": 100,
+    "base_dir": "models/experiments/MIMIC/multitask/TPC",
+    "batch_norm": "mybatchnorm",
+    "batch_size": 8,
+    "batch_size_test": 8,
+    "batchnorm": "mybatchnorm",
+    "dataset": "MIMIC",
+    "diagnosis_size": 64,
+    "disable_cuda": false,
+    "exp_name": "TPC",
+    "intermediate_reporting": false,
+    "kernel_size": 5,
+    "labs_only": false,
+    "last_linear_size": 36,
+    "learning_rate": 0.00221,
+    "loss": "msle",
+    "main_dropout_rate": 0,
+    "mode": "test",
+    "model_type": "tpc",
+    "n_epochs": 10,
+    "n_layers": 8,
+    "name": "TPC",
+    "no_diag": true,
+    "no_exp": false,
+    "no_labs": false,
+    "no_mask": false,
+    "no_skip_connections": false,
+    "no_temp_kernels": 11,
+    "percentage_data": 100.0,
+    "point_size": 5,
+    "point_sizes": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+    ],
+    "save_results_csv": false,
+    "seed": 260374799,
+    "share_weights": false,
+    "shuffle_train": false,
+    "sum_losses": true,
+    "task": "multitask",
+    "temp_dropout_rate": 0.05,
+    "temp_kernels": [
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11
+    ]
+}
+2024-04-14 21:51:36,857 - INFO - Experiment set up.
+2024-04-14 21:51:36,857 - INFO - TempPointConv(
+  (relu): ReLU()
+  (sigmoid): Sigmoid()
+  (hardtanh): Hardtanh(min_val=0.020833333333333332, max_val=100)
+  (msle_loss): MSLELoss(
+    (squared_error): MSELoss()
+  )
+  (mse_loss): MSELoss(
+    (squared_error): MSELoss()
+  )
+  (bce_loss): BCELoss()
+  (main_dropout): Dropout(p=0, inplace=False)
+  (temp_dropout): Dropout(p=0.05, inplace=False)
+  (empty_module): EmptyModule()
+  (diagnosis_encoder): Linear(in_features=1, out_features=64, bias=True)
+  (bn_diagnosis_encoder): MyBatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (bn_point_last_los): MyBatchNorm1d(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (bn_point_last_mort): MyBatchNorm1d(36, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (point_final_los): Linear(in_features=36, out_features=1, bias=True)
+  (point_final_mort): Linear(in_features=36, out_features=1, bias=True)
+  (layer_modules): ModuleDict(
+    (0): ModuleDict(
+      (temp): Conv1d(202, 1111, kernel_size=(5,), stride=(1,), groups=101)
+      (bn_temp): MyBatchNorm1d(1111, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=237, out_features=5, bias=True)
+      (bn_point): MyBatchNorm1d(5, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (1): ModuleDict(
+      (temp): Conv1d(1272, 1166, kernel_size=(5,), stride=(1,), dilation=(4,), groups=106)
+      (bn_temp): MyBatchNorm1d(1166, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=1353, out_features=5, bias=True)
+      (bn_point): MyBatchNorm1d(5, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (2): ModuleDict(
+      (temp): Conv1d(1332, 1221, kernel_size=(5,), stride=(1,), dilation=(8,), groups=111)
+      (bn_temp): MyBatchNorm1d(1221, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=1408, out_features=5, bias=True)
+      (bn_point): MyBatchNorm1d(5, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (3): ModuleDict(
+      (temp): Conv1d(1392, 1276, kernel_size=(5,), stride=(1,), dilation=(12,), groups=116)
+      (bn_temp): MyBatchNorm1d(1276, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=1463, out_features=5, bias=True)
+      (bn_point): MyBatchNorm1d(5, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (4): ModuleDict(
+      (temp): Conv1d(1452, 1331, kernel_size=(5,), stride=(1,), dilation=(16,), groups=121)
+      (bn_temp): MyBatchNorm1d(1331, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=1518, out_features=5, bias=True)
+      (bn_point): MyBatchNorm1d(5, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (5): ModuleDict(
+      (temp): Conv1d(1512, 1386, kernel_size=(5,), stride=(1,), dilation=(20,), groups=126)
+      (bn_temp): MyBatchNorm1d(1386, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=1573, out_features=5, bias=True)
+      (bn_point): MyBatchNorm1d(5, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (6): ModuleDict(
+      (temp): Conv1d(1572, 1441, kernel_size=(5,), stride=(1,), dilation=(24,), groups=131)
+      (bn_temp): MyBatchNorm1d(1441, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=1628, out_features=5, bias=True)
+      (bn_point): MyBatchNorm1d(5, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (7): ModuleDict(
+      (temp): Conv1d(1632, 1496, kernel_size=(5,), stride=(1,), dilation=(28,), groups=136)
+      (bn_temp): MyBatchNorm1d(1496, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (point): Linear(in_features=1683, out_features=5, bias=True)
+      (bn_point): MyBatchNorm1d(5, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (point_last_los): Linear(in_features=1725, out_features=36, bias=True)
+  (point_last_mort): Linear(in_features=1725, out_features=36, bias=True)
+)

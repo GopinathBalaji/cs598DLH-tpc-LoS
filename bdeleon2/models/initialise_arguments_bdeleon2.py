@@ -58,6 +58,14 @@ def gen_config_MIMIC(parser):
         c[arg] = getattr(args, arg)
     return c
 
+def gen_config_MIMICMT(parser):
+    args = parser.parse_args(['--dataset','MIMIC','--task','multitask'])
+    # prepare config dictionary, add all arguments from args
+    c = Config()
+    for arg in vars(args):
+        c[arg] = getattr(args, arg)
+    return c
+
 def initialise_tpc_arguments():
     parser = initialise_arguments()
     parser.add_argument('--n_epochs', default=15, type=int)
@@ -72,6 +80,46 @@ def initialise_tpc_arguments():
     parser.add_argument('-no_skip_connections', action='store_true')
     parser.add_argument('--model_type',default='tpc',type=str,help='can be either tpc, temp_only, or pointwise_only')
     c = gen_config(parser)
+    c['temp_kernels'] = [c['no_temp_kernels']]*c['n_layers']
+    c['point_sizes'] = [c['point_size']]*c['n_layers']
+    if c['dataset'] == 'MIMIC':  # set no_diag to True if the dataset is MIMIC
+        c['no_diag'] = True
+    return c
+
+def initialise_tpc_argumentsMIMIC():
+    parser = initialise_arguments()
+    parser.add_argument('--n_epochs', default=15, type=int)
+    parser.add_argument('--batch_size', default=32, type=int)
+    parser.add_argument('--n_layers', default=9, type=int)
+    parser.add_argument('--kernel_size', default=4, type=int)
+    parser.add_argument('--no_temp_kernels', default=12, type=int)
+    parser.add_argument('--point_size', default=13, type=int)
+    parser.add_argument('--learning_rate', default=0.00226, type=float)
+    parser.add_argument('--temp_dropout_rate', default=0.05, type=float)
+    parser.add_argument('-share_weights', action='store_true')
+    parser.add_argument('-no_skip_connections', action='store_true')
+    parser.add_argument('--model_type',default='tpc',type=str,help='can be either tpc, temp_only, or pointwise_only')
+    c = gen_config_MIMIC(parser)
+    c['temp_kernels'] = [c['no_temp_kernels']]*c['n_layers']
+    c['point_sizes'] = [c['point_size']]*c['n_layers']
+    if c['dataset'] == 'MIMIC':  # set no_diag to True if the dataset is MIMIC
+        c['no_diag'] = True
+    return c
+
+def initialise_tpc_argumentsMIMICMT():
+    parser = initialise_arguments()
+    parser.add_argument('--n_epochs', default=15, type=int)
+    parser.add_argument('--batch_size', default=32, type=int)
+    parser.add_argument('--n_layers', default=9, type=int)
+    parser.add_argument('--kernel_size', default=4, type=int)
+    parser.add_argument('--no_temp_kernels', default=12, type=int)
+    parser.add_argument('--point_size', default=13, type=int)
+    parser.add_argument('--learning_rate', default=0.00226, type=float)
+    parser.add_argument('--temp_dropout_rate', default=0.05, type=float)
+    parser.add_argument('-share_weights', action='store_true')
+    parser.add_argument('-no_skip_connections', action='store_true')
+    parser.add_argument('--model_type',default='tpc',type=str,help='can be either tpc, temp_only, or pointwise_only')
+    c = gen_config_MIMICMT(parser)
     c['temp_kernels'] = [c['no_temp_kernels']]*c['n_layers']
     c['point_sizes'] = [c['point_size']]*c['n_layers']
     if c['dataset'] == 'MIMIC':  # set no_diag to True if the dataset is MIMIC
