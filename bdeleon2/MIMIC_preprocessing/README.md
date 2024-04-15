@@ -10,7 +10,7 @@ MIMIC-IV pre-processing
 3) Once you have a database connection, replace the MIMIC_path in `paths.json` to a convenient location in your computer, and do the same for `MIMIC_preprocessing/create_all_tables.sql` using find and replace for 
 `'/Users/emmarocheteau/PycharmProjects/TPC-LoS-prediction/MIMIC_data/'`. Leave the extra '/' at the end.
 
-4) If you have set up the database on your local computer, you can navigate to the project directory in your terminal, then type the following commands:
+4) If you have set up the database on your local computer, you can navigate to the bdeleon2 directory in your terminal, then type the following commands:
 
     ```
     psql 'dbname=mimic user=mimicuser options=--search_path=mimiciv'
