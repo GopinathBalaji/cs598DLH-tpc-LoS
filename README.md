@@ -1,6 +1,6 @@
 # cs598DLH-tpc-LoS
 
-To load LSTM and Transformer model, navigate to bdeleon2 and start a local runtime. You can connect to colab with the notebook and run the models. Must be on Python 3.6 and meet the `requirements.txt`. Make sure the paths.json is set correctly. Currently only trained on MIMIC.
+To load TPC-LoS, TPC-multitask, LSTM, and Transformer model, navigate to bdeleon2 and start a local runtime. You can connect to colab with the notebook and run the models. Must be on Python 3.6 and meet the `requirements.txt`. Make sure the paths.json is set correctly. Currently only trained on MIMIC.
 
 change log:
 
