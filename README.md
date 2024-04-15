@@ -1,4 +1,6 @@
 # cs598DLH-tpc-LoS
+
+To load LSTM and Transformer model, navigate to bdeleon2 and start a local runtime. You can connect to colab with the notebook and run the models.
 change log:
 
 changed `initialise_tpc_arguments` function of `models/initialise_arguments.py` to include `parser.add_argument('--model_type',default='tpc',type=str,help='can be either tpc, temp_only, or pointwise_only')`

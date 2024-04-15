@@ -1,0 +1,767 @@
+2024-04-14 02:08:49,980 - INFO - Config:
+2024-04-14 02:08:49,981 - INFO - {
+    "L2_regularisation": 0,
+    "alpha": 100,
+    "base_dir": "models\\experiments\\MIMIC\\LoS/LSTM",
+    "batch_size": 512,
+    "batch_size_test": 32,
+    "batchnorm": "mybatchnorm",
+    "bidirectional": false,
+    "channelwise": false,
+    "dataset": "MIMIC",
+    "diagnosis_size": 64,
+    "disable_cuda": false,
+    "exp_name": "LSTM",
+    "hidden_size": 128,
+    "intermediate_reporting": false,
+    "labs_only": false,
+    "last_linear_size": 17,
+    "learning_rate": 0.00129,
+    "loss": "msle",
+    "lstm_dropout_rate": 0.2,
+    "main_dropout_rate": 0.45,
+    "mode": "train",
+    "n_epochs": 8,
+    "n_layers": 2,
+    "name": "LSTM",
+    "no_diag": true,
+    "no_exp": false,
+    "no_labs": false,
+    "no_mask": false,
+    "percentage_data": 100.0,
+    "save_results_csv": false,
+    "seed": 1641521151,
+    "shuffle_train": false,
+    "sum_losses": true,
+    "task": "LoS"
+}
+2024-04-14 02:08:50,092 - INFO - Experiment set up.
+2024-04-14 02:08:50,096 - INFO - BaseLSTM(
+  (relu): ReLU()
+  (sigmoid): Sigmoid()
+  (hardtanh): Hardtanh(min_val=0.020833333333333332, max_val=100)
+  (lstm_dropout): Dropout(p=0.2, inplace=False)
+  (main_dropout): Dropout(p=0.45, inplace=False)
+  (msle_loss): MSLELoss(
+    (squared_error): MSELoss()
+  )
+  (mse_loss): MSELoss(
+    (squared_error): MSELoss()
+  )
+  (bce_loss): BCELoss()
+  (empty_module): EmptyModule()
+  (lstm): LSTM(204, 128, num_layers=2, dropout=0.2)
+  (diagnosis_encoder): Linear(in_features=1, out_features=64, bias=True)
+  (bn_diagnosis_encoder): MyBatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (point_los): Linear(in_features=161, out_features=17, bias=True)
+  (point_mort): Linear(in_features=161, out_features=17, bias=True)
+  (bn_point_last_los): MyBatchNorm1d(17, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (bn_point_last_mort): MyBatchNorm1d(17, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (point_final_los): Linear(in_features=17, out_features=1, bias=True)
+  (point_final_mort): Linear(in_features=17, out_features=1, bias=True)
+)
+2024-04-14 02:12:49,488 - INFO - Custom bins confusion matrix:
+2024-04-14 02:12:49,488 - INFO - [[142486  58345   2275    129      0      0      0      0      0      0]
+ [ 92237  39367   1483    111     11      0      0      0      0      0]
+ [ 61165  27275    831     93      0      0      0      0      0      0]
+ [ 43476  20566    656     54      0      0      0      0      0      0]
+ [ 32562  16320    593     40      0      0      0      0      0      0]
+ [ 25861  13713    534      1      0      0      0      0      0      0]
+ [ 20348  11898    447      0      0      0      0      0      0      0]
+ [ 16461   9800    337      0      0      0      0      0      0      0]
+ [ 57031  34162   1094      6      0      0      0      0      0      0]
+ [ 49133  31315    961      0      0      0      0      0      0      0]]
+2024-04-14 02:12:52,179 - INFO - Test Loss: 250.3300
+2024-04-14 02:12:52,202 - INFO - Testing ended. Results stored =)
+2024-04-14 02:26:48,476 - INFO - Config:
+2024-04-14 02:26:48,478 - INFO - {
+    "L2_regularisation": 0,
+    "alpha": 100,
+    "base_dir": "models\\experiments\\MIMIC\\LoS/LSTM",
+    "batch_size": 512,
+    "batch_size_test": 32,
+    "batchnorm": "mybatchnorm",
+    "bidirectional": false,
+    "channelwise": false,
+    "dataset": "MIMIC",
+    "diagnosis_size": 64,
+    "disable_cuda": false,
+    "exp_name": "LSTM",
+    "hidden_size": 128,
+    "intermediate_reporting": false,
+    "labs_only": false,
+    "last_linear_size": 17,
+    "learning_rate": 0.00129,
+    "loss": "msle",
+    "lstm_dropout_rate": 0.2,
+    "main_dropout_rate": 0.45,
+    "mode": "train",
+    "n_epochs": 8,
+    "n_layers": 2,
+    "name": "LSTM",
+    "no_diag": true,
+    "no_exp": false,
+    "no_labs": false,
+    "no_mask": false,
+    "percentage_data": 100.0,
+    "save_results_csv": false,
+    "seed": 1636437687,
+    "shuffle_train": false,
+    "sum_losses": true,
+    "task": "LoS"
+}
+2024-04-14 02:26:48,553 - INFO - Experiment set up.
+2024-04-14 02:26:48,559 - INFO - BaseLSTM(
+  (relu): ReLU()
+  (sigmoid): Sigmoid()
+  (hardtanh): Hardtanh(min_val=0.020833333333333332, max_val=100)
+  (lstm_dropout): Dropout(p=0.2, inplace=False)
+  (main_dropout): Dropout(p=0.45, inplace=False)
+  (msle_loss): MSLELoss(
+    (squared_error): MSELoss()
+  )
+  (mse_loss): MSELoss(
+    (squared_error): MSELoss()
+  )
+  (bce_loss): BCELoss()
+  (empty_module): EmptyModule()
+  (lstm): LSTM(204, 128, num_layers=2, dropout=0.2)
+  (diagnosis_encoder): Linear(in_features=1, out_features=64, bias=True)
+  (bn_diagnosis_encoder): MyBatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (point_los): Linear(in_features=161, out_features=17, bias=True)
+  (point_mort): Linear(in_features=161, out_features=17, bias=True)
+  (bn_point_last_los): MyBatchNorm1d(17, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (bn_point_last_mort): MyBatchNorm1d(17, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (point_final_los): Linear(in_features=17, out_features=1, bias=True)
+  (point_final_mort): Linear(in_features=17, out_features=1, bias=True)
+)
+2024-04-14 02:31:07,702 - INFO - Custom bins confusion matrix:
+2024-04-14 02:31:07,703 - INFO - [[ 56248 125500  20021   1297    156     13      0      0      0      0]
+ [ 37035  81093  14034    860    159     28      0      0      0      0]
+ [ 25227  53359   9994    623    134      3     24      0      0      0]
+ [ 18033  38571   7521    468    135      0     24      0      0      0]
+ [ 13514  29261   6157    404    155      0     24      0      0      0]
+ [ 10510  23953   5078    438    106      0     24      0      0      0]
+ [  8399  19463   4323    410     74      0     24      0      0      0]
+ [  6457  15993   3747    333     31     13     24      0      0      0]
+ [ 21579  57054  12502    953     56      5    128     16      0      0]
+ [ 18805  50086  10695   1095    543    163     15      7      0      0]]
+2024-04-14 02:31:10,153 - INFO - Test Loss: 206.3495
+2024-04-14 02:31:10,177 - INFO - Testing ended. Results stored =)
+2024-04-14 02:34:01,383 - INFO - Config:
+2024-04-14 02:34:01,385 - INFO - {
+    "L2_regularisation": 0,
+    "alpha": 100,
+    "base_dir": "models\\experiments\\MIMIC\\LoS/LSTM",
+    "batch_size": 512,
+    "batch_size_test": 32,
+    "batchnorm": "mybatchnorm",
+    "bidirectional": false,
+    "channelwise": false,
+    "dataset": "MIMIC",
+    "diagnosis_size": 64,
+    "disable_cuda": false,
+    "exp_name": "LSTM",
+    "hidden_size": 128,
+    "intermediate_reporting": false,
+    "labs_only": false,
+    "last_linear_size": 17,
+    "learning_rate": 0.00129,
+    "loss": "msle",
+    "lstm_dropout_rate": 0.2,
+    "main_dropout_rate": 0.45,
+    "mode": "train",
+    "n_epochs": 8,
+    "n_layers": 2,
+    "name": "LSTM",
+    "no_diag": true,
+    "no_exp": false,
+    "no_labs": false,
+    "no_mask": false,
+    "percentage_data": 100.0,
+    "save_results_csv": false,
+    "seed": 3977674333,
+    "shuffle_train": false,
+    "sum_losses": true,
+    "task": "LoS"
+}
+2024-04-14 02:34:01,462 - INFO - Experiment set up.
+2024-04-14 02:34:01,467 - INFO - BaseLSTM(
+  (relu): ReLU()
+  (sigmoid): Sigmoid()
+  (hardtanh): Hardtanh(min_val=0.020833333333333332, max_val=100)
+  (lstm_dropout): Dropout(p=0.2, inplace=False)
+  (main_dropout): Dropout(p=0.45, inplace=False)
+  (msle_loss): MSLELoss(
+    (squared_error): MSELoss()
+  )
+  (mse_loss): MSELoss(
+    (squared_error): MSELoss()
+  )
+  (bce_loss): BCELoss()
+  (empty_module): EmptyModule()
+  (lstm): LSTM(204, 128, num_layers=2, dropout=0.2)
+  (diagnosis_encoder): Linear(in_features=1, out_features=64, bias=True)
+  (bn_diagnosis_encoder): MyBatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (point_los): Linear(in_features=161, out_features=17, bias=True)
+  (point_mort): Linear(in_features=161, out_features=17, bias=True)
+  (bn_point_last_los): MyBatchNorm1d(17, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (bn_point_last_mort): MyBatchNorm1d(17, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (point_final_los): Linear(in_features=17, out_features=1, bias=True)
+  (point_final_mort): Linear(in_features=17, out_features=1, bias=True)
+)
+2024-04-14 02:34:38,383 - INFO - Experiment exited. Checkpoints stored =)
+2024-04-14 02:34:48,122 - INFO - Config:
+2024-04-14 02:34:48,124 - INFO - {
+    "L2_regularisation": 0,
+    "alpha": 100,
+    "base_dir": "models\\experiments\\MIMIC\\LoS/LSTM",
+    "batch_size": 512,
+    "batch_size_test": 32,
+    "batchnorm": "mybatchnorm",
+    "bidirectional": false,
+    "channelwise": false,
+    "dataset": "MIMIC",
+    "diagnosis_size": 64,
+    "disable_cuda": false,
+    "exp_name": "LSTM",
+    "hidden_size": 128,
+    "intermediate_reporting": false,
+    "labs_only": false,
+    "last_linear_size": 17,
+    "learning_rate": 0.00129,
+    "loss": "msle",
+    "lstm_dropout_rate": 0.2,
+    "main_dropout_rate": 0.45,
+    "mode": "train",
+    "n_epochs": 8,
+    "n_layers": 2,
+    "name": "LSTM",
+    "no_diag": true,
+    "no_exp": false,
+    "no_labs": false,
+    "no_mask": false,
+    "percentage_data": 100.0,
+    "save_results_csv": false,
+    "seed": 2008767451,
+    "shuffle_train": false,
+    "sum_losses": true,
+    "task": "LoS"
+}
+2024-04-14 02:34:48,196 - INFO - Experiment set up.
+2024-04-14 02:34:48,200 - INFO - BaseLSTM(
+  (relu): ReLU()
+  (sigmoid): Sigmoid()
+  (hardtanh): Hardtanh(min_val=0.020833333333333332, max_val=100)
+  (lstm_dropout): Dropout(p=0.2, inplace=False)
+  (main_dropout): Dropout(p=0.45, inplace=False)
+  (msle_loss): MSLELoss(
+    (squared_error): MSELoss()
+  )
+  (mse_loss): MSELoss(
+    (squared_error): MSELoss()
+  )
+  (bce_loss): BCELoss()
+  (empty_module): EmptyModule()
+  (lstm): LSTM(204, 128, num_layers=2, dropout=0.2)
+  (diagnosis_encoder): Linear(in_features=1, out_features=64, bias=True)
+  (bn_diagnosis_encoder): MyBatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (point_los): Linear(in_features=161, out_features=17, bias=True)
+  (point_mort): Linear(in_features=161, out_features=17, bias=True)
+  (bn_point_last_los): MyBatchNorm1d(17, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (bn_point_last_mort): MyBatchNorm1d(17, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (point_final_los): Linear(in_features=17, out_features=1, bias=True)
+  (point_final_mort): Linear(in_features=17, out_features=1, bias=True)
+)
+2024-04-14 02:35:30,489 - INFO - Experiment exited. Checkpoints stored =)
+2024-04-14 02:35:44,461 - INFO - Config:
+2024-04-14 02:35:44,463 - INFO - {
+    "L2_regularisation": 0,
+    "alpha": 100,
+    "base_dir": "models\\experiments\\MIMIC\\LoS/LSTM",
+    "batch_size": 512,
+    "batch_size_test": 32,
+    "batchnorm": "mybatchnorm",
+    "bidirectional": false,
+    "channelwise": false,
+    "dataset": "MIMIC",
+    "diagnosis_size": 64,
+    "disable_cuda": false,
+    "exp_name": "LSTM",
+    "hidden_size": 128,
+    "intermediate_reporting": false,
+    "labs_only": false,
+    "last_linear_size": 17,
+    "learning_rate": 0.00129,
+    "loss": "msle",
+    "lstm_dropout_rate": 0.2,
+    "main_dropout_rate": 0.45,
+    "mode": "train",
+    "n_epochs": 8,
+    "n_layers": 2,
+    "name": "LSTM",
+    "no_diag": true,
+    "no_exp": false,
+    "no_labs": false,
+    "no_mask": false,
+    "percentage_data": 100.0,
+    "save_results_csv": false,
+    "seed": 2272956734,
+    "shuffle_train": false,
+    "sum_losses": true,
+    "task": "LoS"
+}
+2024-04-14 02:35:44,541 - INFO - Experiment set up.
+2024-04-14 02:35:44,545 - INFO - BaseLSTM(
+  (relu): ReLU()
+  (sigmoid): Sigmoid()
+  (hardtanh): Hardtanh(min_val=0.020833333333333332, max_val=100)
+  (lstm_dropout): Dropout(p=0.2, inplace=False)
+  (main_dropout): Dropout(p=0.45, inplace=False)
+  (msle_loss): MSLELoss(
+    (squared_error): MSELoss()
+  )
+  (mse_loss): MSELoss(
+    (squared_error): MSELoss()
+  )
+  (bce_loss): BCELoss()
+  (empty_module): EmptyModule()
+  (lstm): LSTM(204, 128, num_layers=2, dropout=0.2)
+  (diagnosis_encoder): Linear(in_features=1, out_features=64, bias=True)
+  (bn_diagnosis_encoder): MyBatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (point_los): Linear(in_features=161, out_features=17, bias=True)
+  (point_mort): Linear(in_features=161, out_features=17, bias=True)
+  (bn_point_last_los): MyBatchNorm1d(17, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (bn_point_last_mort): MyBatchNorm1d(17, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (point_final_los): Linear(in_features=17, out_features=1, bias=True)
+  (point_final_mort): Linear(in_features=17, out_features=1, bias=True)
+)
+2024-04-14 02:39:58,850 - INFO - Custom bins confusion matrix:
+2024-04-14 02:39:58,850 - INFO - [[184667  18520     48      0      0      0      0      0      0      0]
+ [119922  13239     48      0      0      0      0      0      0      0]
+ [ 80057   9283     24      0      0      0      0      0      0      0]
+ [ 57541   7208      3      0      0      0      0      0      0      0]
+ [ 43843   5672      0      0      0      0      0      0      0      0]
+ [ 35654   4455      0      0      0      0      0      0      0      0]
+ [ 28857   3836      0      0      0      0      0      0      0      0]
+ [ 23411   3187      0      0      0      0      0      0      0      0]
+ [ 80995  11298      0      0      0      0      0      0      0      0]
+ [ 74276   7133      0      0      0      0      0      0      0      0]]
+2024-04-14 02:40:01,382 - INFO - Test Loss: 288.2718
+2024-04-14 02:40:01,406 - INFO - Testing ended. Results stored =)
+2024-04-14 02:41:11,934 - INFO - Experiment exited. Checkpoints stored =)
+2024-04-14 02:46:02,472 - INFO - Config:
+2024-04-14 02:46:02,474 - INFO - {
+    "L2_regularisation": 0,
+    "alpha": 100,
+    "base_dir": "models\\experiments\\MIMIC\\LoS/LSTM",
+    "batch_size": 512,
+    "batch_size_test": 32,
+    "batchnorm": "mybatchnorm",
+    "bidirectional": false,
+    "channelwise": false,
+    "dataset": "MIMIC",
+    "diagnosis_size": 64,
+    "disable_cuda": false,
+    "exp_name": "LSTM",
+    "hidden_size": 128,
+    "intermediate_reporting": false,
+    "labs_only": false,
+    "last_linear_size": 17,
+    "learning_rate": 0.00129,
+    "loss": "msle",
+    "lstm_dropout_rate": 0.2,
+    "main_dropout_rate": 0.45,
+    "mode": "train",
+    "n_epochs": 8,
+    "n_layers": 2,
+    "name": "LSTM",
+    "no_diag": true,
+    "no_exp": false,
+    "no_labs": false,
+    "no_mask": false,
+    "percentage_data": 100.0,
+    "save_results_csv": false,
+    "seed": 1677397717,
+    "shuffle_train": false,
+    "sum_losses": true,
+    "task": "LoS"
+}
+2024-04-14 02:46:02,553 - INFO - Experiment set up.
+2024-04-14 02:46:02,558 - INFO - BaseLSTM(
+  (relu): ReLU()
+  (sigmoid): Sigmoid()
+  (hardtanh): Hardtanh(min_val=0.020833333333333332, max_val=100)
+  (lstm_dropout): Dropout(p=0.2, inplace=False)
+  (main_dropout): Dropout(p=0.45, inplace=False)
+  (msle_loss): MSLELoss(
+    (squared_error): MSELoss()
+  )
+  (mse_loss): MSELoss(
+    (squared_error): MSELoss()
+  )
+  (bce_loss): BCELoss()
+  (empty_module): EmptyModule()
+  (lstm): LSTM(204, 128, num_layers=2, dropout=0.2)
+  (diagnosis_encoder): Linear(in_features=1, out_features=64, bias=True)
+  (bn_diagnosis_encoder): MyBatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (point_los): Linear(in_features=161, out_features=17, bias=True)
+  (point_mort): Linear(in_features=161, out_features=17, bias=True)
+  (bn_point_last_los): MyBatchNorm1d(17, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (bn_point_last_mort): MyBatchNorm1d(17, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (point_final_los): Linear(in_features=17, out_features=1, bias=True)
+  (point_final_mort): Linear(in_features=17, out_features=1, bias=True)
+)
+2024-04-14 02:49:51,274 - INFO - Custom bins confusion matrix:
+2024-04-14 02:49:51,275 - INFO - [[115473  84245   3360    157      0      0      0      0      0      0]
+ [ 74615  56304   2208     82      0      0      0      0      0      0]
+ [ 51088  36735   1438    103      0      0      0      0      0      0]
+ [ 37247  26365   1082     58      0      0      0      0      0      0]
+ [ 28832  19955    693     35      0      0      0      0      0      0]
+ [ 23655  15948    497      9      0      0      0      0      0      0]
+ [ 19258  13050    385      0      0      0      0      0      0      0]
+ [ 15918  10323    357      0      0      0      0      0      0      0]
+ [ 58550  32624   1119      0      0      0      0      0      0      0]
+ [ 53163  27242    999      5      0      0      0      0      0      0]]
+2024-04-14 02:49:53,236 - INFO - Test Loss: 256.6289
+2024-04-14 02:49:53,266 - INFO - Testing ended. Results stored =)
+2024-04-14 02:55:18,882 - INFO - Config:
+2024-04-14 02:55:18,884 - INFO - {
+    "L2_regularisation": 0,
+    "alpha": 100,
+    "base_dir": "models\\experiments\\MIMIC\\LoS/LSTM",
+    "batch_size": 512,
+    "batch_size_test": 32,
+    "batchnorm": "mybatchnorm",
+    "bidirectional": false,
+    "channelwise": false,
+    "dataset": "MIMIC",
+    "diagnosis_size": 64,
+    "disable_cuda": false,
+    "exp_name": "LSTM",
+    "hidden_size": 128,
+    "intermediate_reporting": false,
+    "labs_only": false,
+    "last_linear_size": 17,
+    "learning_rate": 0.00129,
+    "loss": "msle",
+    "lstm_dropout_rate": 0.2,
+    "main_dropout_rate": 0.45,
+    "mode": "train",
+    "n_epochs": 8,
+    "n_layers": 2,
+    "name": "LSTM",
+    "no_diag": true,
+    "no_exp": false,
+    "no_labs": false,
+    "no_mask": false,
+    "percentage_data": 100.0,
+    "save_results_csv": false,
+    "seed": 808574335,
+    "shuffle_train": false,
+    "sum_losses": true,
+    "task": "LoS"
+}
+2024-04-14 02:55:18,959 - INFO - Experiment set up.
+2024-04-14 02:55:18,965 - INFO - BaseLSTM(
+  (relu): ReLU()
+  (sigmoid): Sigmoid()
+  (hardtanh): Hardtanh(min_val=0.020833333333333332, max_val=100)
+  (lstm_dropout): Dropout(p=0.2, inplace=False)
+  (main_dropout): Dropout(p=0.45, inplace=False)
+  (msle_loss): MSLELoss(
+    (squared_error): MSELoss()
+  )
+  (mse_loss): MSELoss(
+    (squared_error): MSELoss()
+  )
+  (bce_loss): BCELoss()
+  (empty_module): EmptyModule()
+  (lstm): LSTM(204, 128, num_layers=2, dropout=0.2)
+  (diagnosis_encoder): Linear(in_features=1, out_features=64, bias=True)
+  (bn_diagnosis_encoder): MyBatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (point_los): Linear(in_features=161, out_features=17, bias=True)
+  (point_mort): Linear(in_features=161, out_features=17, bias=True)
+  (bn_point_last_los): MyBatchNorm1d(17, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (bn_point_last_mort): MyBatchNorm1d(17, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (point_final_los): Linear(in_features=17, out_features=1, bias=True)
+  (point_final_mort): Linear(in_features=17, out_features=1, bias=True)
+)
+2024-04-14 02:59:21,897 - INFO - Custom bins confusion matrix:
+2024-04-14 02:59:21,897 - INFO - [[144574  58282    379      0      0      0      0      0      0      0]
+ [ 95972  36888    349      0      0      0      0      0      0      0]
+ [ 64541  24478    345      0      0      0      0      0      0      0]
+ [ 46802  17679    271      0      0      0      0      0      0      0]
+ [ 35878  13392    245      0      0      0      0      0      0      0]
+ [ 28896  10955    258      0      0      0      0      0      0      0]
+ [ 23633   8865    195      0      0      0      0      0      0      0]
+ [ 18903   7541    154      0      0      0      0      0      0      0]
+ [ 63796  27978    519      0      0      0      0      0      0      0]
+ [ 55197  25546    666      0      0      0      0      0      0      0]]
+2024-04-14 02:59:23,865 - INFO - Test Loss: 273.0606
+2024-04-14 02:59:23,896 - INFO - Testing ended. Results stored =)
+2024-04-14 03:02:45,622 - INFO - Experiment exited. Checkpoints stored =)
+2024-04-14 03:04:05,783 - INFO - Config:
+2024-04-14 03:04:05,783 - INFO - {
+    "L2_regularisation": 0,
+    "alpha": 100,
+    "base_dir": "models\\experiments\\MIMIC\\LoS/LSTM",
+    "batch_size": 512,
+    "batch_size_test": 32,
+    "batchnorm": "mybatchnorm",
+    "bidirectional": false,
+    "channelwise": false,
+    "dataset": "MIMIC",
+    "diagnosis_size": 64,
+    "disable_cuda": false,
+    "exp_name": "LSTM",
+    "hidden_size": 128,
+    "intermediate_reporting": false,
+    "labs_only": false,
+    "last_linear_size": 17,
+    "learning_rate": 0.00129,
+    "loss": "msle",
+    "lstm_dropout_rate": 0.2,
+    "main_dropout_rate": 0.45,
+    "mode": "train",
+    "n_epochs": 8,
+    "n_layers": 2,
+    "name": "LSTM",
+    "no_diag": true,
+    "no_exp": false,
+    "no_labs": false,
+    "no_mask": false,
+    "percentage_data": 100.0,
+    "save_results_csv": false,
+    "seed": 445286545,
+    "shuffle_train": false,
+    "sum_losses": true,
+    "task": "LoS"
+}
+2024-04-14 03:04:05,859 - INFO - Experiment set up.
+2024-04-14 03:04:05,895 - INFO - Experiment exited. Checkpoints stored =)
+2024-04-14 03:04:29,899 - INFO - Config:
+2024-04-14 03:04:29,899 - INFO - {
+    "L2_regularisation": 0,
+    "alpha": 100,
+    "base_dir": "models\\experiments\\MIMIC\\LoS/LSTM",
+    "batch_size": 512,
+    "batch_size_test": 32,
+    "batchnorm": "mybatchnorm",
+    "bidirectional": false,
+    "channelwise": false,
+    "dataset": "MIMIC",
+    "diagnosis_size": 64,
+    "disable_cuda": false,
+    "exp_name": "LSTM",
+    "hidden_size": 128,
+    "intermediate_reporting": false,
+    "labs_only": false,
+    "last_linear_size": 17,
+    "learning_rate": 0.00129,
+    "loss": "msle",
+    "lstm_dropout_rate": 0.2,
+    "main_dropout_rate": 0.45,
+    "mode": "train",
+    "n_epochs": 8,
+    "n_layers": 2,
+    "name": "LSTM",
+    "no_diag": true,
+    "no_exp": false,
+    "no_labs": false,
+    "no_mask": false,
+    "percentage_data": 100.0,
+    "save_results_csv": false,
+    "seed": 2612720251,
+    "shuffle_train": false,
+    "sum_losses": true,
+    "task": "LoS"
+}
+2024-04-14 03:04:29,973 - INFO - Experiment set up.
+2024-04-14 03:04:29,988 - INFO - BaseLSTM(
+  (relu): ReLU()
+  (sigmoid): Sigmoid()
+  (hardtanh): Hardtanh(min_val=0.020833333333333332, max_val=100)
+  (lstm_dropout): Dropout(p=0.2, inplace=False)
+  (main_dropout): Dropout(p=0.45, inplace=False)
+  (msle_loss): MSLELoss(
+    (squared_error): MSELoss()
+  )
+  (mse_loss): MSELoss(
+    (squared_error): MSELoss()
+  )
+  (bce_loss): BCELoss()
+  (empty_module): EmptyModule()
+  (lstm): LSTM(204, 128, num_layers=2, dropout=0.2)
+  (diagnosis_encoder): Linear(in_features=1, out_features=64, bias=True)
+  (bn_diagnosis_encoder): MyBatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (point_los): Linear(in_features=161, out_features=17, bias=True)
+  (point_mort): Linear(in_features=161, out_features=17, bias=True)
+  (bn_point_last_los): MyBatchNorm1d(17, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (bn_point_last_mort): MyBatchNorm1d(17, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (point_final_los): Linear(in_features=17, out_features=1, bias=True)
+  (point_final_mort): Linear(in_features=17, out_features=1, bias=True)
+)
+2024-04-14 03:08:21,441 - INFO - Custom bins confusion matrix:
+2024-04-14 03:08:21,457 - INFO - [[95534 70511 19057  8068  4272  2343  1449   796  1066   139]
+ [34530 48215 20523 11501  7746  4419  2507  1692  1938   138]
+ [14100 28401 15258 10243  7875  5399  3063  2140  2757   128]
+ [ 6927 17692 11197  8096  6867  5145  3421  2268  2982   157]
+ [ 4062 11742  8012  6532  5554  4442  3523  2235  3275   138]
+ [ 2773  8546  6252  5088  4848  4104  3091  2041  3246   120]
+ [ 2070  6044  4801  4145  4157  3914  2728  1830  2883   121]
+ [ 1298  4441  3684  3363  3579  3078  2591  1737  2743    84]
+ [ 3349 13331 10724 10866 12372 11289 10713  7280 12063   306]
+ [ 2070  9029  8510  7195  8818 10240 10451  8899 15431   766]]
+2024-04-14 03:08:23,815 - INFO - Test Loss: 108.8938
+2024-04-14 03:08:23,846 - INFO - Testing ended. Results stored =)
+2024-04-14 03:10:26,395 - INFO - Config:
+2024-04-14 03:10:26,395 - INFO - {
+    "L2_regularisation": 0,
+    "alpha": 100,
+    "base_dir": "models\\experiments\\MIMIC\\LoS/LSTM",
+    "batch_size": 512,
+    "batch_size_test": 32,
+    "batchnorm": "mybatchnorm",
+    "bidirectional": false,
+    "channelwise": false,
+    "dataset": "MIMIC",
+    "diagnosis_size": 64,
+    "disable_cuda": false,
+    "exp_name": "LSTM",
+    "hidden_size": 128,
+    "intermediate_reporting": false,
+    "labs_only": false,
+    "last_linear_size": 17,
+    "learning_rate": 0.00129,
+    "loss": "msle",
+    "lstm_dropout_rate": 0.2,
+    "main_dropout_rate": 0.45,
+    "mode": "train",
+    "n_epochs": 8,
+    "n_layers": 2,
+    "name": "LSTM",
+    "no_diag": true,
+    "no_exp": false,
+    "no_labs": false,
+    "no_mask": false,
+    "percentage_data": 100.0,
+    "save_results_csv": false,
+    "seed": 3594186286,
+    "shuffle_train": false,
+    "sum_losses": true,
+    "task": "LoS"
+}
+2024-04-14 03:10:26,484 - INFO - Experiment set up.
+2024-04-14 03:10:26,488 - INFO - BaseLSTM(
+  (relu): ReLU()
+  (sigmoid): Sigmoid()
+  (hardtanh): Hardtanh(min_val=0.020833333333333332, max_val=100)
+  (lstm_dropout): Dropout(p=0.2, inplace=False)
+  (main_dropout): Dropout(p=0.45, inplace=False)
+  (msle_loss): MSLELoss(
+    (squared_error): MSELoss()
+  )
+  (mse_loss): MSELoss(
+    (squared_error): MSELoss()
+  )
+  (bce_loss): BCELoss()
+  (empty_module): EmptyModule()
+  (lstm): LSTM(204, 128, num_layers=2, dropout=0.2)
+  (diagnosis_encoder): Linear(in_features=1, out_features=64, bias=True)
+  (bn_diagnosis_encoder): MyBatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (point_los): Linear(in_features=161, out_features=17, bias=True)
+  (point_mort): Linear(in_features=161, out_features=17, bias=True)
+  (bn_point_last_los): MyBatchNorm1d(17, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (bn_point_last_mort): MyBatchNorm1d(17, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (point_final_los): Linear(in_features=17, out_features=1, bias=True)
+  (point_final_mort): Linear(in_features=17, out_features=1, bias=True)
+)
+2024-04-14 03:14:30,002 - INFO - Custom bins confusion matrix:
+2024-04-14 03:14:30,004 - INFO - [[95534 70511 19057  8068  4272  2343  1449   796  1066   139]
+ [34530 48215 20523 11501  7746  4419  2507  1692  1938   138]
+ [14100 28401 15258 10243  7875  5399  3063  2140  2757   128]
+ [ 6927 17692 11197  8096  6867  5145  3421  2268  2982   157]
+ [ 4062 11742  8012  6532  5554  4442  3523  2235  3275   138]
+ [ 2773  8546  6252  5088  4848  4104  3091  2041  3246   120]
+ [ 2070  6044  4801  4145  4157  3914  2728  1830  2883   121]
+ [ 1298  4441  3684  3363  3579  3078  2591  1737  2743    84]
+ [ 3349 13331 10724 10866 12372 11289 10713  7280 12063   306]
+ [ 2070  9029  8510  7195  8818 10240 10451  8899 15431   766]]
+2024-04-14 03:14:32,387 - INFO - Test Loss: 108.8938
+2024-04-14 03:14:32,413 - INFO - Testing ended. Results stored =)
+2024-04-14 16:01:52,680 - INFO - Config:
+2024-04-14 16:01:52,683 - INFO - {
+    "L2_regularisation": 0,
+    "alpha": 100,
+    "base_dir": "models\\experiments\\MIMIC\\LoS/LSTM",
+    "batch_size": 512,
+    "batch_size_test": 32,
+    "batchnorm": "mybatchnorm",
+    "bidirectional": false,
+    "channelwise": false,
+    "dataset": "MIMIC",
+    "diagnosis_size": 64,
+    "disable_cuda": false,
+    "exp_name": "LSTM",
+    "hidden_size": 128,
+    "intermediate_reporting": false,
+    "labs_only": false,
+    "last_linear_size": 17,
+    "learning_rate": 0.00129,
+    "loss": "msle",
+    "lstm_dropout_rate": 0.2,
+    "main_dropout_rate": 0.45,
+    "mode": "train",
+    "n_epochs": 8,
+    "n_layers": 2,
+    "name": "LSTM",
+    "no_diag": true,
+    "no_exp": false,
+    "no_labs": false,
+    "no_mask": false,
+    "percentage_data": 100.0,
+    "save_results_csv": false,
+    "seed": 2365996660,
+    "shuffle_train": false,
+    "sum_losses": true,
+    "task": "LoS"
+}
+2024-04-14 16:01:52,899 - INFO - Experiment set up.
+2024-04-14 16:01:52,925 - INFO - BaseLSTM(
+  (relu): ReLU()
+  (sigmoid): Sigmoid()
+  (hardtanh): Hardtanh(min_val=0.020833333333333332, max_val=100)
+  (lstm_dropout): Dropout(p=0.2, inplace=False)
+  (main_dropout): Dropout(p=0.45, inplace=False)
+  (msle_loss): MSLELoss(
+    (squared_error): MSELoss()
+  )
+  (mse_loss): MSELoss(
+    (squared_error): MSELoss()
+  )
+  (bce_loss): BCELoss()
+  (empty_module): EmptyModule()
+  (lstm): LSTM(204, 128, num_layers=2, dropout=0.2)
+  (diagnosis_encoder): Linear(in_features=1, out_features=64, bias=True)
+  (bn_diagnosis_encoder): MyBatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (point_los): Linear(in_features=161, out_features=17, bias=True)
+  (point_mort): Linear(in_features=161, out_features=17, bias=True)
+  (bn_point_last_los): MyBatchNorm1d(17, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (bn_point_last_mort): MyBatchNorm1d(17, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (point_final_los): Linear(in_features=17, out_features=1, bias=True)
+  (point_final_mort): Linear(in_features=17, out_features=1, bias=True)
+)
+2024-04-14 16:07:13,173 - INFO - Custom bins confusion matrix:
+2024-04-14 16:07:13,177 - INFO - [[95534 70511 19057  8068  4272  2343  1449   796  1066   139]
+ [34530 48215 20523 11501  7746  4419  2507  1692  1938   138]
+ [14100 28401 15258 10243  7875  5399  3063  2140  2757   128]
+ [ 6927 17692 11197  8096  6867  5145  3421  2268  2982   157]
+ [ 4062 11742  8012  6532  5554  4442  3523  2235  3275   138]
+ [ 2773  8546  6252  5088  4848  4104  3091  2041  3246   120]
+ [ 2070  6044  4801  4145  4157  3914  2728  1830  2883   121]
+ [ 1298  4441  3684  3363  3579  3078  2591  1737  2743    84]
+ [ 3349 13331 10724 10866 12372 11289 10713  7280 12063   306]
+ [ 2070  9029  8510  7195  8818 10240 10451  8899 15431   766]]
+2024-04-14 16:07:15,086 - INFO - Test Loss: 108.8938
+2024-04-14 16:07:15,136 - INFO - Testing ended. Results stored =)

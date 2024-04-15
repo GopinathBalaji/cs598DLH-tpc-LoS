@@ -1,0 +1,14 @@
+[
+]
+{"test_mad": {"data": 3.772209367473864, "label": "test_mad", "epoch": 15, "counter": 0.0}},
+{"test_mse": {"data": 69.33166640651174, "label": "test_mse", "epoch": 15, "counter": 0.0}},
+{"test_mape": {"data": 119.518935338074, "label": "test_mape", "epoch": 15, "counter": 0.0}},
+{"test_msle": {"data": 1.2899925640981809, "label": "test_msle", "epoch": 15, "counter": 0.0}},
+{"test_r2": {"data": 0.10819816569291929, "label": "test_r2", "epoch": 15, "counter": 0.0}},
+{"test_kappa": {"data": 0.396732749358359, "label": "test_kappa", "epoch": 15, "counter": 0.0}},
+{"test_mad": {"data": 3.772209367473864, "label": "test_mad", "epoch": 15, "counter": 0.0}},
+{"test_mse": {"data": 69.33166640651174, "label": "test_mse", "epoch": 15, "counter": 0.0}},
+{"test_mape": {"data": 119.518935338074, "label": "test_mape", "epoch": 15, "counter": 0.0}},
+{"test_msle": {"data": 1.2899925640981809, "label": "test_msle", "epoch": 15, "counter": 0.0}},
+{"test_r2": {"data": 0.10819816569291929, "label": "test_r2", "epoch": 15, "counter": 0.0}},
+{"test_kappa": {"data": 0.396732749358359, "label": "test_kappa", "epoch": 15, "counter": 0.0}},

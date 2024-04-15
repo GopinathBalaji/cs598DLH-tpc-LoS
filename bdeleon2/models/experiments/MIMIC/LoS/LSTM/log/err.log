@@ -1,0 +1,14 @@
+2024-04-14 03:02:45,598 - INFO -   File "C:\Users\brend\AppData\Local\Programs\Python\Python36\lib\site-packages\trixi\experiment\experiment.py", line 133, in run_test
+    self.test()
+
+  File "D:\cs598DLHproj\data_and_model\TPC-LoS-prediction\models\experiment_template_bdeleon2.py", line 233, in test
+    self.model.eval()
+
+2024-04-14 03:02:45,598 - INFO - AttributeError("'BaselineLSTM' object has no attribute 'model'",)
+2024-04-14 03:04:05,878 - INFO -   File "C:\Users\brend\AppData\Local\Programs\Python\Python36\lib\site-packages\trixi\experiment\experiment.py", line 133, in run_test
+    self.test()
+
+  File "D:\cs598DLHproj\data_and_model\TPC-LoS-prediction\models\experiment_template_bdeleon2.py", line 233, in test
+    self.model.eval()
+
+2024-04-14 03:04:05,879 - INFO - AttributeError("'NoneType' object has no attribute 'eval'",)

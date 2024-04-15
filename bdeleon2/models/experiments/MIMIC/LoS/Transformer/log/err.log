@@ -1,0 +1,7 @@
+2024-04-14 16:34:51,858 - INFO -   File "C:\Users\brend\AppData\Local\Programs\Python\Python36\lib\site-packages\trixi\experiment\experiment.py", line 125, in run_test
+    self.setup()
+
+  File "D:\cs598DLHproj\data_and_model\TPC-LoS-prediction\models\run_transformer_bdeleon2.py", line 12, in setup
+    F=self.train_datareader.F,
+
+2024-04-14 16:34:51,859 - INFO - AttributeError("'BaselineTransformer' object has no attribute 'train_datareader'",)
