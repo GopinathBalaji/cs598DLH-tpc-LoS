@@ -8,7 +8,7 @@ eICU pre-processing
 3) Replace the eICU_path in `paths.json` to a convenient location in your computer, and do the same for `eICU_preprocessing/create_all_tables.sql` using find and replace for 
 `'/Users/emmarocheteau/PycharmProjects/TPC-LoS-prediction/eICU_data/'`. Leave the extra '/' at the end.
 
-4) In your terminal, navigate to the project directory, then type the following commands:
+4) In your terminal, navigate to the bdeleon2 directory, then type the following commands:
 
     ```
     psql 'dbname=eicu user=eicu options=--search_path=eicu'
