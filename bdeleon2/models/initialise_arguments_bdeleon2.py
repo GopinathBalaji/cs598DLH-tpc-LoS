@@ -68,6 +68,7 @@ def gen_config_MIMICMT(parser):
 
 def initialise_tpc_arguments():
     parser = initialise_arguments()
+    parser.add_argument('--sample',default=0,type=int)
     parser.add_argument('--n_epochs', default=15, type=int)
     parser.add_argument('--batch_size', default=32, type=int)
     parser.add_argument('--n_layers', default=9, type=int)
