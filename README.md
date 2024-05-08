@@ -111,11 +111,13 @@ This repository contains the code and resources for predicting the Length of Sta
    python models.run_tpc --model_type tpc --dataset MIMIC
 ```
 
-1. To **evaluate** the trained models, you can use the same `run_tpc.py` script but change the `mode` to <i>'test'</i>, run:
+6. To **evaluate** the trained models, you can use the same `run_tpc.py` script but change the `mode` to <i>'test'</i>, run:
 
 ```python
 python models.run_tpc --model_type tpc --mode test --dataset MIMIC
 ```
+
+7. You can use the Pre-trained models check the `Tpc-LoS-Prediction/models/experiments` folder to check the model checkpoint under the checkpoint for different runs.
 
 ## Results
 
