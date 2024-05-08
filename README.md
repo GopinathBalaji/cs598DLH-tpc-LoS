@@ -105,6 +105,18 @@ This repository contains the code and resources for predicting the Length of Sta
 
 4. If running the limited tests, insert the test files into the test directory inside the path where you set up the MIMIC data.
 
+5. To **train** the models using the provided training script under `Tpc-LoS-Prediction`, run:
+
+```python
+   python models.run_tpc --model_type tpc --dataset MIMIC
+```
+
+1. To **evaluate** the trained models, you can use the same `run_tpc.py` script but change the `mode` to <i>'test'</i>, run:
+
+```python
+python models.run_tpc --model_type tpc --mode test --dataset MIMIC
+```
+
 ## Results
 
 ### Table of results
