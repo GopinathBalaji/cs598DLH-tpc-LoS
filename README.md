@@ -117,6 +117,8 @@ This repository contains the code and resources for predicting the Length of Sta
 python models.run_tpc --model_type tpc --mode test --dataset MIMIC
 ```
 
+Alternatively, for both training and evaluation, you can go to the corresponding sections in the `DL4H_Team_82.ipynb` notebook and run the corresponding code cells to get the results.
+
 7. You can use the Pre-trained models check the `Tpc-LoS-Prediction/models/experiments` folder to check the model checkpoint under the checkpoint for different runs.
 
 ## Results
