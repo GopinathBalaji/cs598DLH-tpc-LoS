@@ -1,7 +1,9 @@
 # cs598DLH-tpc-LoS
 
 This is the repository for CS 598: Deep Learning for Healthcare project. Our report is under DeepLearningForHealthcareReport.pdf, and our presentation is under cs598DL4Hpresentation.rar.
+<br/><br/>
 Team members: Brandon Deleon, Kakarla Uday Kanth Reddy, Gopinath Balaji.
+<br/><br/>
 This repository contains the code and resources for predicting the Length of Stay (LoS) in Intensive Care Units (ICUs) using the Temporal Pointwise Convolution (TPC) model and other baseline models, such as LSTM and Transformer.
 
 
